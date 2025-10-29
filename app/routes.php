@@ -17,6 +17,7 @@ use App\Application\Actions\Ai\ListModelsAction;
 use App\Application\Actions\Ai\PingAction;
 use App\Application\Actions\Subscription\CreateCheckoutSessionAction;
 use App\Application\Actions\Webhook\StripeWebhookAction;
+use App\Application\Actions\Admin\StatsAction;
 use App\Application\Middleware\JwtMiddleware;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -143,4 +144,9 @@ return function (App $app) {
     
     // Webhook routes (no authentication)
     $app->post('/webhooks/stripe', StripeWebhookAction::class);
+    
+    // Admin routes (JWT protected)
+    $app->group('/admin', function (Group $group) {
+        $group->get('/stats', StatsAction::class)->add(JwtMiddleware::class);
+    });
 };
