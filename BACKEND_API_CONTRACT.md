@@ -6,6 +6,7 @@
 
 ## Table of Contents
 - [Authentication](#authentication)
+- [Auth Status & Frontend Gating](#auth-status--frontend-gating)
 - [User Endpoints](#user-endpoints)
 - [Lesson Endpoints](#lesson-endpoints)
 - [Error Handling](#error-handling)
@@ -119,6 +120,139 @@ Authorization: Bearer <token>
 
 **Error Responses:**
 - `401 Unauthorized` - Invalid or expired token
+
+---
+
+## Auth Status & Frontend Gating
+
+### GET /auth/status
+
+**Lightweight endpoint for frontend button flow decisions.** Public endpoint with optional authentication.
+
+**Request (No Token):**
+```bash
+GET /auth/status
+```
+
+**Response:** `200 OK`
+```json
+{
+  "authenticated": false
+}
+```
+
+---
+
+**Request (With Valid Token):**
+```bash
+GET /auth/status
+Authorization: Bearer <token>
+```
+
+**Response:** `200 OK`
+```json
+{
+  "authenticated": true,
+  "user": {
+    "id": 1,
+    "fullName": "John Doe",
+    "email": "john@example.com"
+  },
+  "subscription": {
+    "status": "none"
+  },
+  "canGenerate": true
+}
+```
+
+**Field Descriptions:**
+- `authenticated` (boolean) - Whether a valid token was provided
+- `user` (object) - User details (only if authenticated)
+- `subscription.status` (string) - Subscription status: `none`, `active`, `canceled`, `past_due`
+- `canGenerate` (boolean) - Whether user can generate lessons (uses same logic as `/users/quota`)
+
+**Use Cases:**
+- Check authentication status without requiring a token
+- Determine button states on Pricing page
+- Gate home prompt submission
+- Show/hide UI elements based on subscription and quota
+
+---
+
+### Frontend Gating Logic
+
+#### Pricing Page Button Flows
+
+**"Upgrade to Pro" Button:**
+- ✅ **If authenticated** → Open Stripe checkout flow (to be implemented)
+- ❌ **If not authenticated** → Redirect to `/signup`
+
+**"Try for Free" Button:**
+- ❌ **If not authenticated** → Redirect to `/signup`
+- ✅ **If authenticated AND `canGenerate === true`** → Redirect to home, allow prompt submission
+- ⚠️ **If authenticated AND `canGenerate === false`** → Open pricing modal showing "Pro $9/month" upgrade
+
+---
+
+#### Home Page Prompt Submission
+
+**When user attempts to generate a lesson:**
+
+1. **Not authenticated (`authenticated === false`)**
+   - Server returns `401 Unauthorized`
+   - Frontend action: Redirect to `/signup` with message "Sign in to create lessons"
+
+2. **Authenticated with available quota (`canGenerate === true`)**
+   - Server returns `201 Created` with lesson data
+   - Frontend action: Show lesson result
+
+3. **Authenticated but quota exhausted (`canGenerate === false`)**
+   - Server returns `402 Payment Required` with upgrade object:
+   ```json
+   {
+     "error": "payment_required",
+     "message": "Free trial used. Upgrade to Pro ($9/month) to continue.",
+     "upgrade": {
+       "price": 9,
+       "currency": "USD",
+       "plan": "pro_monthly"
+     }
+   }
+   ```
+   - Frontend action: Show pricing modal/popup with upgrade CTA
+
+---
+
+#### Recommended Frontend Flow
+
+```javascript
+// Example: Check status on page load
+const checkAuthStatus = async () => {
+  const token = localStorage.getItem('token');
+  const headers = token ? { 'Authorization': `Bearer ${token}` } : {};
+  
+  const response = await fetch('/auth/status', { headers });
+  const status = await response.json();
+  
+  if (status.authenticated) {
+    // User is logged in
+    updateUI({
+      showSignIn: false,
+      showUserMenu: true,
+      enablePrompt: status.canGenerate,
+      showUpgradeButton: !status.canGenerate && status.subscription.status !== 'active'
+    });
+  } else {
+    // User is not logged in
+    updateUI({
+      showSignIn: true,
+      showUserMenu: false,
+      enablePrompt: false,
+      redirectToSignup: true
+    });
+  }
+};
+```
 
 ---
 

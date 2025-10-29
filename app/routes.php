@@ -5,6 +5,7 @@ declare(strict_types=1);
 use App\Application\Actions\Auth\SignupAction;
 use App\Application\Actions\Auth\LoginAction;
 use App\Application\Actions\Auth\MeAction;
+use App\Application\Actions\Auth\StatusAction;
 use App\Application\Actions\TestPostAction;
 use App\Application\Actions\Lesson\GenerateLessonAction;
 use App\Application\Actions\Lesson\ListLessonsAction;
@@ -77,6 +78,7 @@ return function (App $app) {
     $app->group('/auth', function (Group $group) {
         $group->post('/signup', SignupAction::class);
         $group->post('/login', LoginAction::class);
+        $group->get('/status', StatusAction::class); // Public, token optional
         $group->get('/me', MeAction::class)->add(JwtMiddleware::class);
     });
 
