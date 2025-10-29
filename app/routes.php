@@ -53,33 +53,6 @@ return function (App $app) {
     $app->get('/ai/models', ListModelsAction::class);
     $app->get('/ai/ping', PingAction::class);
 
-    // Test POST endpoint to debug JWT middleware
-    $app->post('/test-jwt', function (Request $request, Response $response) {
-        $userId = $request->getAttribute('user_id');
-        $data = $request->getParsedBody();
-        $response->getBody()->write(json_encode([
-            'user_id' => $userId,
-            'received_data' => $data,
-            'message' => 'JWT Test Successful'
-        ]));
-        return $response->withHeader('Content-Type', 'application/json');
-    })->add(JwtMiddleware::class);
-
-    // Test with closure at /lessons/test-generate
-    $app->post('/lessons/test-generate', function (Request $request, Response $response) {
-        $userId = $request->getAttribute('user_id');
-        $data = $request->getParsedBody();
-        $response->getBody()->write(json_encode([
-            'user_id' => $userId,
-            'data' => $data,
-            'message' => 'Lesson Generate Test - Closure'
-        ]));
-        return $response->withHeader('Content-Type', 'application/json');
-    })->add(JwtMiddleware::class);
-
-    // Test POST with Action class (not in group)
-    $app->post('/test-post-action', TestPostAction::class)->add(JwtMiddleware::class);
-
     // Auth routes (public except /me)
     $app->group('/auth', function (Group $group) {
         $group->post('/signup', SignupAction::class);
