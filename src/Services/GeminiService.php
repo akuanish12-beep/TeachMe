@@ -15,6 +15,7 @@ class GeminiService
 {
     private Client $httpClient;
     private string $apiKey;
+    private string $model;
     private ?LoggerInterface $logger;
     private const MAX_ATTEMPTS = 3;
     private const BACKOFF_DELAYS = [0, 0.5, 1.0]; // seconds
@@ -23,7 +24,19 @@ class GeminiService
     {
         $this->httpClient = new Client(['timeout' => 60]);
         $this->apiKey = $_ENV['GEMINI_API_KEY'] ?? '';
+        $this->model = $_ENV['GEMINI_MODEL'] ?? '';
         $this->logger = $logger;
+
+        // Validate configuration
+        if (empty($this->apiKey)) {
+            throw new \RuntimeException('GEMINI_API_KEY not configured');
+        }
+
+        if (empty($this->model)) {
+            throw new \RuntimeException('GEMINI_MODEL not configured');
+        }
+
+        $this->log('info', "GeminiService initialized with model: {$this->model}");
     }
 
     /**
@@ -31,12 +44,6 @@ class GeminiService
      */
     public function generateLesson(string $topic, string $language): array
     {
-        // Check if mock mode
-        if (empty($this->apiKey) || $this->apiKey === 'PLACEHOLDER_TO_BE_FILLED') {
-            $this->log('info', 'Using mock mode for lesson generation');
-            return $this->getMockResponse();
-        }
-
         $lastException = null;
         
         for ($attempt = 1; $attempt <= self::MAX_ATTEMPTS; $attempt++) {
@@ -97,30 +104,17 @@ class GeminiService
         $schemaJson = json_encode(LessonSchema::getSchema(), JSON_PRETTY_PRINT);
         
         $systemPrompt = <<<PROMPT
-You are an AI language tutor. Your role is to ONLY produce language tutoring content.
+You are an AI language tutor. Output ONLY valid JSON (no markdown, no comments).
 
-CRITICAL REQUIREMENTS:
-1. Output ONLY valid JSON matching EXACTLY this schema (no markdown, no comments, no explanatory text):
+Schema:
 {$schemaJson}
 
-2. All natural language content MUST be in {$language}.
-
-3. Limit total output to approximately 1200 words.
-
-4. Exercise type examples (for your reference, do NOT include these in output):
-   - fill_in_the_blanks: "Complete: I ___ to the store" with answer ["go", "went"]
-   - translate_phrase: Translate "Hello" to target language
-   - answer_question: "What is a greeting?" expecting key points
-
-5. If you cannot comply, return minimal valid JSON with empty arrays for exercises.
-
-STRICT OUTPUT FORMAT:
-- Start with { and end with }
-- NO markdown code fences (no ```json)
-- NO explanatory text before or after JSON
-- NO comments inside JSON
-- Use standard double quotes only
-- No trailing commas
+Rules:
+1. All content in {$language}
+2. 2-3 sections max, ~600 words total
+3. 2 exercises per type minimum
+4. Pure JSON output (no ```json fences)
+5. Start with { end with }
 
 PROMPT;
 
@@ -140,9 +134,8 @@ PROMPT;
     private function callGeminiAPI(string $prompt): string
     {
         try {
-            // Note: Using v1beta with gemini-1.5-flash (fallback if API key has limited model access)
             $response = $this->httpClient->post(
-                "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={$this->apiKey}",
+                "https://generativelanguage.googleapis.com/v1beta/{$this->model}:generateContent?key={$this->apiKey}",
                 [
                     'json' => [
                         'contents' => [
@@ -156,22 +149,45 @@ PROMPT;
                             'temperature' => 0.4,  // Lower for more deterministic output
                             'topK' => 40,
                             'topP' => 0.95,
-                            'maxOutputTokens' => 2048,
+                            'maxOutputTokens' => 4096,  // Increased for full lesson generation
                         ]
                     ]
                 ]
             );
 
-            $body = json_decode($response->getBody()->getContents(), true);
+            $rawBody = $response->getBody()->getContents();
+            $body = json_decode($rawBody, true);
+            
+            // Check for finish reason MAX_TOKENS
+            if (isset($body['candidates'][0]['finishReason']) 
+                && $body['candidates'][0]['finishReason'] === 'MAX_TOKENS'
+            ) {
+                $this->log('error', 'Gemini hit token limit', ['response' => substr($rawBody, 0, 500)]);
+                throw new \RuntimeException('Gemini response truncated due to token limit. Please reduce lesson scope.');
+            }
             
             if (!isset($body['candidates'][0]['content']['parts'][0]['text'])) {
+                $this->log('error', 'Unexpected Gemini API response structure', [
+                    'response' => substr($rawBody, 0, 500)
+                ]);
                 throw new \RuntimeException('Unexpected Gemini API response structure');
             }
 
             return $body['candidates'][0]['content']['parts'][0]['text'];
             
         } catch (GuzzleException $e) {
+            $statusCode = $e->getCode();
             $maskedMessage = str_replace($this->apiKey, '***REDACTED***', $e->getMessage());
+            
+            // Handle model unavailability
+            if ($statusCode === 404 || $statusCode === 400) {
+                $this->log('error', "Model unavailable: {$this->model} - " . $maskedMessage);
+                throw new \RuntimeException(
+                    "Gemini model '{$this->model}' is not available or invalid. Please check GEMINI_MODEL configuration.",
+                    502
+                );
+            }
+            
             $this->log('error', 'Gemini API request failed: ' . $maskedMessage);
             throw new \RuntimeException('Gemini API request failed: ' . $maskedMessage);
         }
@@ -242,65 +258,6 @@ PROMPT;
                 $errors
             );
         }
-    }
-
-    /**
-     * Get deterministic mock response for testing
-     */
-    private function getMockResponse(): array
-    {
-        return [
-            'topic' => 'Spanish Greetings',
-            'language' => 'Spanish',
-            'title' => 'Introduction to Spanish Greetings',
-            'sections' => [
-                [
-                    'heading' => 'Basic Greetings',
-                    'body' => 'In Spanish, the most common greeting is "Hola" (Hello). You can use it at any time of day with anyone. For a more formal greeting, you can say "Buenos días" (Good morning), "Buenas tardes" (Good afternoon), or "Buenas noches" (Good evening/night).'
-                ],
-                [
-                    'heading' => 'Asking How Someone Is',
-                    'body' => 'After greeting someone, it\'s polite to ask how they are. You can say "¿Cómo estás?" (How are you? - informal) or "¿Cómo está?" (How are you? - formal). Common responses include "Bien, gracias" (Good, thank you) or "Muy bien" (Very good).'
-                ]
-            ],
-            'exercises' => [
-                'fill_in_the_blanks' => [
-                    [
-                        'prompt' => 'Complete the greeting',
-                        'text_with_gaps' => '___ días, ¿cómo estás?',
-                        'answers' => ['Buenos']
-                    ],
-                    [
-                        'prompt' => 'Fill in the response',
-                        'text_with_gaps' => 'Hola, ___ bien, gracias.',
-                        'answers' => ['estoy', 'muy']
-                    ]
-                ],
-                'translate_phrase' => [
-                    [
-                        'prompt' => 'Translate to Spanish',
-                        'source' => 'Good morning',
-                        'target_hint' => 'Buenos ___'
-                    ],
-                    [
-                        'prompt' => 'Translate to Spanish',
-                        'source' => 'How are you? (informal)',
-                        'target_hint' => '¿Cómo ___?'
-                    ]
-                ],
-                'answer_question' => [
-                    [
-                        'prompt' => 'Answer in your own words',
-                        'question' => '¿Cuándo usas "Buenos días"?',
-                        'expected_points' => [
-                            'In the morning',
-                            'As a formal greeting',
-                            'Until noon or early afternoon'
-                        ]
-                    ]
-                ]
-            ]
-        ];
     }
 
     /**
