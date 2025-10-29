@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use App\Application\Settings\SettingsInterface;
 use App\Services\GeminiService;
+use App\Services\StripeService;
 use DI\ContainerBuilder;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
@@ -47,6 +48,11 @@ return function (ContainerBuilder $containerBuilder) {
         GeminiService::class => function (ContainerInterface $c) {
             $logger = $c->get(LoggerInterface::class);
             return new GeminiService($logger);
+        },
+        
+        StripeService::class => function (ContainerInterface $c) {
+            $db = $c->get(PDO::class);
+            return new StripeService($db);
         },
     ]);
 };

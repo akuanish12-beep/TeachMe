@@ -15,6 +15,8 @@ use App\Application\Actions\User\ViewUserAction;
 use App\Application\Actions\User\QuotaAction;
 use App\Application\Actions\Ai\ListModelsAction;
 use App\Application\Actions\Ai\PingAction;
+use App\Application\Actions\Subscription\CreateCheckoutSessionAction;
+use App\Application\Actions\Webhook\StripeWebhookAction;
 use App\Application\Middleware\JwtMiddleware;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -133,4 +135,12 @@ return function (App $app) {
         $group->get('', ListUsersAction::class);
         $group->get('/{id}', ViewUserAction::class);
     });
+    
+    // Subscription routes
+    $app->group('/subscriptions', function (Group $group) {
+        $group->post('/create-checkout-session', CreateCheckoutSessionAction::class)->add(JwtMiddleware::class);
+    });
+    
+    // Webhook routes (no authentication)
+    $app->post('/webhooks/stripe', StripeWebhookAction::class);
 };
