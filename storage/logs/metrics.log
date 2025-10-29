@@ -1,0 +1,15 @@
+{"timestamp":"2025-10-29 18:20:54","method":"POST","path":"\/lessons\/generate","status":402,"duration_ms":3.38,"ip":"127.0.0.1","user_agent":"curl\/8.5.0"}
+{"timestamp":"2025-10-29 18:20:55","method":"POST","path":"\/lessons\/generate","status":402,"duration_ms":2.97,"ip":"127.0.0.1","user_agent":"curl\/8.5.0"}
+{"timestamp":"2025-10-29 18:20:56","method":"POST","path":"\/lessons\/generate","status":402,"duration_ms":2.84,"ip":"127.0.0.1","user_agent":"curl\/8.5.0"}
+{"timestamp":"2025-10-29 18:20:57","method":"POST","path":"\/lessons\/generate","status":402,"duration_ms":2.76,"ip":"127.0.0.1","user_agent":"curl\/8.5.0"}
+{"timestamp":"2025-10-29 18:20:58","method":"POST","path":"\/lessons\/generate","status":402,"duration_ms":2.67,"ip":"127.0.0.1","user_agent":"curl\/8.5.0"}
+{"timestamp":"2025-10-29 18:22:37","method":"POST","path":"\/lessons\/generate","status":502,"duration_ms":84029.06,"ip":"127.0.0.1","user_agent":"curl\/8.5.0"}
+{"timestamp":"2025-10-29 18:26:34","method":"POST","path":"\/lessons\/generate","status":502,"duration_ms":102020.3,"ip":"127.0.0.1","user_agent":"curl\/8.5.0"}
+{"timestamp":"2025-10-29 18:26:34","method":"POST","path":"\/auth\/login","status":401,"duration_ms":2.67,"ip":"127.0.0.1","user_agent":"curl\/8.5.0"}
+{"timestamp":"2025-10-29 18:26:34","method":"POST","path":"\/auth\/login","status":401,"duration_ms":1.94,"ip":"127.0.0.1","user_agent":"curl\/8.5.0"}
+{"timestamp":"2025-10-29 18:26:34","method":"POST","path":"\/auth\/login","status":401,"duration_ms":1.58,"ip":"127.0.0.1","user_agent":"curl\/8.5.0"}
+{"timestamp":"2025-10-29 18:26:34","method":"POST","path":"\/auth\/login","status":401,"duration_ms":1.83,"ip":"127.0.0.1","user_agent":"curl\/8.5.0"}
+{"timestamp":"2025-10-29 18:26:34","method":"POST","path":"\/auth\/login","status":401,"duration_ms":2.18,"ip":"127.0.0.1","user_agent":"curl\/8.5.0"}
+{"timestamp":"2025-10-29 18:29:42","method":"POST","path":"\/lessons\/generate","status":401,"duration_ms":0.79,"ip":"127.0.0.1","user_agent":"curl\/8.5.0"}
+{"timestamp":"2025-10-29 18:30:07","method":"POST","path":"\/lessons\/generate","status":401,"duration_ms":0.5,"ip":"127.0.0.1","user_agent":"curl\/8.5.0"}
+{"timestamp":"2025-10-29 18:30:21","method":"PATCH","path":"\/lessons\/19","status":401,"duration_ms":0.72,"ip":"127.0.0.1","user_agent":"curl\/8.5.0"}
