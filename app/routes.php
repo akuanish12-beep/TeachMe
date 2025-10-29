@@ -10,6 +10,9 @@ use App\Application\Actions\TestPostAction;
 use App\Application\Actions\Lesson\GenerateLessonAction;
 use App\Application\Actions\Lesson\ListLessonsAction;
 use App\Application\Actions\Lesson\GetLessonAction;
+use App\Application\Actions\Lesson\DeleteLessonAction;
+use App\Application\Actions\Lesson\UpdateLessonAction;
+use App\Application\Actions\Lesson\ListFavoritesAction;
 use App\Application\Actions\User\ListUsersAction;
 use App\Application\Actions\User\ViewUserAction;
 use App\Application\Actions\User\QuotaAction;
@@ -85,10 +88,16 @@ return function (App $app) {
         $group->get('/me', MeAction::class)->add(JwtMiddleware::class);
     });
 
-    // Protected GET lesson routes (work fine in groups with Action classes)
+    // Protected lesson routes
     $app->group('/lessons', function (Group $group) {
+        // List endpoints
         $group->get('', ListLessonsAction::class)->add(JwtMiddleware::class);
+        $group->get('/favorites', ListFavoritesAction::class)->add(JwtMiddleware::class);
+        
+        // Single lesson operations
         $group->get('/{id}', GetLessonAction::class)->add(JwtMiddleware::class);
+        $group->patch('/{id}', UpdateLessonAction::class)->add(JwtMiddleware::class);
+        $group->delete('/{id}', DeleteLessonAction::class)->add(JwtMiddleware::class);
     });
     
     // POST /lessons/generate - Complete implementation with logger
