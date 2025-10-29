@@ -7,19 +7,24 @@ namespace App\Application\Actions\Lesson;
 use App\Application\Helpers\JsonResponse;
 use App\Application\Helpers\Validator;
 use App\Services\GeminiService;
+use App\Exceptions\GeminiInvalidJsonException;
+use App\Exceptions\GeminiSchemaViolationException;
 use PDO;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
+use Psr\Log\LoggerInterface;
 
 class GenerateLessonAction
 {
     private PDO $db;
     private GeminiService $geminiService;
+    private ?LoggerInterface $logger;
 
-    public function __construct(PDO $db, GeminiService $geminiService)
+    public function __construct(PDO $db, GeminiService $geminiService, ?LoggerInterface $logger = null)
     {
         $this->db = $db;
         $this->geminiService = $geminiService;
+        $this->logger = $logger;
     }
 
     public function __invoke(Request $request, Response $response): Response
@@ -56,8 +61,12 @@ class GenerateLessonAction
                 ->withStatus(402);
         }
 
+        $attemptCount = 0;
+        
         try {
-            // Generate lesson using Gemini
+            $attemptCount++;
+            
+            // Generate lesson using Gemini (with retries built-in)
             $lessonData = $this->geminiService->generateLesson(
                 $data['topic'],
                 $data['language']
@@ -66,50 +75,114 @@ class GenerateLessonAction
             // Begin transaction
             $this->db->beginTransaction();
 
-            // Insert into lessons table
-            $stmt = $this->db->prepare(
-                "INSERT INTO lessons (user_id, topic, language, title, content_json) 
-                 VALUES (?, ?, ?, ?, ?)"
-            );
-            $stmt->execute([
-                $userId,
-                $data['topic'],
-                $data['language'],
-                $lessonData['title'],
-                json_encode($lessonData)
+            try {
+                // Insert into lessons table
+                $stmt = $this->db->prepare(
+                    "INSERT INTO lessons (user_id, topic, language, title, content_json) 
+                     VALUES (?, ?, ?, ?, ?)"
+                );
+                $stmt->execute([
+                    $userId,
+                    $data['topic'],
+                    $data['language'],
+                    $lessonData['title'],
+                    json_encode($lessonData)
+                ]);
+
+                $lessonId = (int) $this->db->lastInsertId();
+
+                // Insert into generations table (tracks usage)
+                $stmt = $this->db->prepare(
+                    "INSERT INTO generations (user_id, topic, language, result_json) 
+                     VALUES (?, ?, ?, ?)"
+                );
+                $stmt->execute([
+                    $userId,
+                    $data['topic'],
+                    $data['language'],
+                    json_encode($lessonData)
+                ]);
+
+                $this->db->commit();
+
+                $this->log('info', 'Lesson generated and persisted successfully', [
+                    'user_id' => $userId,
+                    'lesson_id' => $lessonId,
+                    'topic' => $data['topic'],
+                    'language' => $data['language']
+                ]);
+
+                return JsonResponse::success($response, [
+                    'id' => $lessonId,
+                    'lesson' => $lessonData
+                ], 201);
+                
+            } catch (\Exception $dbError) {
+                $this->db->rollBack();
+                throw $dbError;
+            }
+
+        } catch (GeminiInvalidJsonException | GeminiSchemaViolationException $e) {
+            // AI generation failed (invalid JSON or schema violation)
+            $this->log('error', 'AI generation failed', [
+                'user_id' => $userId,
+                'topic' => $data['topic'],
+                'language' => $data['language'],
+                'attempt_count' => $attemptCount,
+                'error' => $e->getMessage()
             ]);
-
-            $lessonId = (int) $this->db->lastInsertId();
-
-            // Insert into generations table (tracks usage)
-            $stmt = $this->db->prepare(
-                "INSERT INTO generations (user_id, topic, language, result_json) 
-                 VALUES (?, ?, ?, ?)"
+            
+            return JsonResponse::error(
+                $response,
+                'AI generation failed. Please try again.',
+                502,
+                'generation_error'
             );
-            $stmt->execute([
-                $userId,
-                $data['topic'],
-                $data['language'],
-                json_encode($lessonData)
+            
+        } catch (\RuntimeException $e) {
+            // HTTP or API errors
+            $this->log('error', 'Generation service error', [
+                'user_id' => $userId,
+                'topic' => $data['topic'],
+                'language' => $data['language'],
+                'attempt_count' => $attemptCount,
+                'error' => $e->getMessage()
             ]);
-
-            $this->db->commit();
-
-            return JsonResponse::success($response, [
-                'id' => $lessonId,
-                'lesson' => $lessonData
-            ], 201);
-
+            
+            return JsonResponse::error(
+                $response,
+                'AI generation failed. Please try again.',
+                502,
+                'generation_error'
+            );
+            
         } catch (\Exception $e) {
+            // Database or unexpected errors
             if ($this->db->inTransaction()) {
                 $this->db->rollBack();
             }
+            
+            $this->log('error', 'Unexpected error during lesson generation', [
+                'user_id' => $userId,
+                'topic' => $data['topic'],
+                'language' => $data['language'],
+                'attempt_count' => $attemptCount,
+                'error' => $e->getMessage()
+            ]);
+            
             return JsonResponse::error(
                 $response,
                 'Failed to generate lesson: ' . $e->getMessage(),
                 500,
                 'GENERATION_FAILED'
             );
+        }
+    }
+    
+    private function log(string $level, string $message, array $context = []): void
+    {
+        if ($this->logger) {
+            $this->logger->log($level, $message, $context);
         }
     }
 

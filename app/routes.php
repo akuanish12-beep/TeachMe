@@ -13,6 +13,7 @@ use App\Application\Actions\User\ListUsersAction;
 use App\Application\Actions\User\ViewUserAction;
 use App\Application\Actions\User\QuotaAction;
 use App\Application\Actions\Ai\ListModelsAction;
+use App\Application\Actions\Ai\PingAction;
 use App\Application\Middleware\JwtMiddleware;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -41,8 +42,9 @@ return function (App $app) {
         return $response->withHeader('Content-Type', 'application/json');
     });
 
-    // AI diagnostics endpoint (public, read-only)
+    // AI diagnostics endpoints (public, read-only)
     $app->get('/ai/models', ListModelsAction::class);
+    $app->get('/ai/ping', PingAction::class);
 
     // Test POST endpoint to debug JWT middleware
     $app->post('/test-jwt', function (Request $request, Response $response) {
@@ -108,8 +110,8 @@ return function (App $app) {
             // Create GeminiService with logger
             $geminiService = new \App\Services\GeminiService($logger);
             
-            // Create and invoke action
-            $action = new \App\Application\Actions\Lesson\GenerateLessonAction($db, $geminiService);
+            // Create and invoke action (pass logger for error tracking)
+            $action = new \App\Application\Actions\Lesson\GenerateLessonAction($db, $geminiService, $logger);
             return $action($request, $response);
             
         } catch (\Exception $e) {
