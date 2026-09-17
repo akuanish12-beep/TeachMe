@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Generate Release Notes for Tutorly API
+# Generate Release Notes for TeachMe API
 # Usage: ./scripts/generate_release_notes.sh
 
 set -e
@@ -11,10 +11,10 @@ OUTPUT_FILE="$PROJECT_ROOT/RELEASE_NOTES.md"
 VERSION="1.0.0"
 RELEASE_DATE=$(date +"%Y-%m-%d")
 
-echo "Generating Release Notes for Tutorly API v$VERSION..."
+echo "Generating Release Notes for TeachMe API v$VERSION..."
 
 cat > "$OUTPUT_FILE" << 'HEADER'
-# Tutorly API - Release Notes
+# TeachMe API - Release Notes
 
 HEADER
 
@@ -29,7 +29,7 @@ cat >> "$OUTPUT_FILE" << 'BODY'
 
 ## Overview
 
-Tutorly is an AI-powered language learning platform that generates personalized lessons using Google's Gemini API. This release includes the complete backend API with authentication, subscription management, lesson generation, and user management features.
+TeachMe is an AI-powered language learning platform that generates personalized lessons using Google's Gemini API. This release includes the complete backend API with authentication, subscription management, lesson generation, and user management features.
 
 ---
 
@@ -139,8 +139,8 @@ Tutorly is an AI-powered language learning platform that generates personalized 
 # Application
 APP_ENV=production|development
 APP_DEBUG=true|false
-APP_URL=https://tutorly.space
-FRONTEND_ORIGIN=https://tutorly.space
+APP_URL=https://teachme.mom
+FRONTEND_ORIGIN=https://teachme.mom
 
 # Security
 JWT_SECRET=<64-character-hex-string>
@@ -148,8 +148,8 @@ JWT_SECRET=<64-character-hex-string>
 # Database
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_NAME=tutorly
-DB_USER=tutorly_prod
+DB_NAME=teachme
+DB_USER=teachme_prod
 DB_PASS=<secure-password>
 
 # AI Services
@@ -182,8 +182,8 @@ REDIS_PORT=6379
 1. **Clone Repository**
    ```bash
    cd /var/www
-   git clone <repository-url> tutorly-api
-   cd tutorly-api
+   git clone <repository-url> teachme-api
+   cd teachme-api
    ```
 
 2. **Install Dependencies**
@@ -201,9 +201,9 @@ REDIS_PORT=6379
 4. **Create Database**
    ```bash
    mysql -u root -p
-   CREATE DATABASE tutorly CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-   CREATE USER 'tutorly_prod'@'localhost' IDENTIFIED BY 'secure-password';
-   GRANT ALL PRIVILEGES ON tutorly.* TO 'tutorly_prod'@'localhost';
+   CREATE DATABASE teachme CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+   CREATE USER 'teachme_prod'@'localhost' IDENTIFIED BY 'secure-password';
+   GRANT ALL PRIVILEGES ON teachme.* TO 'teachme_prod'@'localhost';
    FLUSH PRIVILEGES;
    EXIT;
    ```
@@ -235,27 +235,27 @@ REDIS_PORT=6379
 
 ### Apache Configuration
 
-Create `/etc/apache2/sites-available/tutorly-api.conf`:
+Create `/etc/apache2/sites-available/teachme-api.conf`:
 
 ```apache
 <VirtualHost *:80>
-    ServerName api.tutorly.space
-    DocumentRoot /var/www/tutorly-api/public
+    ServerName api.teachme.mom
+    DocumentRoot /var/www/teachme-api/public
 
-    <Directory /var/www/tutorly-api/public>
+    <Directory /var/www/teachme-api/public>
         Options -Indexes +FollowSymLinks
         AllowOverride All
         Require all granted
     </Directory>
 
-    ErrorLog ${APACHE_LOG_DIR}/tutorly-api-error.log
-    CustomLog ${APACHE_LOG_DIR}/tutorly-api-access.log combined
+    ErrorLog ${APACHE_LOG_DIR}/teachme-api-error.log
+    CustomLog ${APACHE_LOG_DIR}/teachme-api-access.log combined
 </VirtualHost>
 ```
 
 Enable site and restart Apache:
 ```bash
-sudo a2ensite tutorly-api
+sudo a2ensite teachme-api
 sudo a2enmod rewrite
 sudo systemctl restart apache2
 ```

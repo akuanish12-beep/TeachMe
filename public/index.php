@@ -13,9 +13,9 @@ use Dotenv\Dotenv;
 
 require __DIR__ . '/../vendor/autoload.php';
 
-// Load environment variables
-$dotenv = Dotenv::createImmutable(__DIR__ . '/..');
-$dotenv->load();
+// Load .env; file values override Apache SetEnv (fixes stale Apache config)
+$dotenv = Dotenv::createMutable(__DIR__ . '/..');
+$dotenv->safeLoad();
 
 // Instantiate PHP-DI ContainerBuilder
 $containerBuilder = new ContainerBuilder();

@@ -36,15 +36,21 @@ class CreateCheckoutSessionAction
         }
 
         try {
-            // Optional: allow price ID override in request body
-            $data = $request->getParsedBody();
+            $data = $request->getParsedBody() ?? [];
             $priceId = $data['priceId'] ?? null;
+            $planTier = $data['planTier'] ?? $data['plan_tier'] ?? null;
 
-            // Create Stripe Checkout Session
+            if (is_string($planTier) && $planTier !== '') {
+                $planTier = strtolower($planTier);
+            } else {
+                $planTier = null;
+            }
+
             $checkoutUrl = $this->stripeService->createCheckoutSession(
                 (int) $userId,
                 $userEmail,
-                $priceId
+                is_string($priceId) ? $priceId : null,
+                $planTier
             );
 
             $this->log('info', 'Stripe checkout session created', [

@@ -116,3 +116,584 @@
 [2025-10-29T18:26:34.850120+00:00] gemini.ERROR: Attempt 3 - API error: Gemini response truncated due to token limit. Please reduce lesson scope. [] []
 [2025-10-29T18:26:34.850150+00:00] gemini.ERROR: All Gemini API attempts exhausted [] []
 [2025-10-29T18:26:34.850190+00:00] gemini.ERROR: Generation service error {"user_id":29,"topic":"Rate Test 4","language":"English","attempt_count":1,"error":"Failed to generate valid lesson after 3 attempts: Gemini response truncated due to token limit. Please reduce lesson scope."} []
+[2025-10-29T19:21:39.902286+00:00] gemini.INFO: GeminiService initialized with model: models/gemini-2.5-flash [] []
+[2025-10-29T19:21:39.904163+00:00] gemini.INFO: Gemini API attempt 1/{3} for topic: Travel Tips [] []
+[2025-10-29T19:22:00.765793+00:00] gemini.INFO: Successfully generated and validated lesson [] []
+[2025-10-29T19:22:00.770254+00:00] gemini.INFO: Lesson generated and persisted successfully {"user_id":29,"lesson_id":20,"topic":"Travel Tips","language":"Spanish"} []
+[2025-10-29T19:22:00.821742+00:00] gemini.INFO: GeminiService initialized with model: models/gemini-2.5-flash [] []
+[2025-10-29T19:22:00.822600+00:00] gemini.INFO: Gemini API attempt 1/{3} for topic: Business English [] []
+[2025-10-29T19:22:27.486822+00:00] gemini.INFO: Successfully generated and validated lesson [] []
+[2025-10-29T19:22:27.490387+00:00] gemini.INFO: Lesson generated and persisted successfully {"user_id":29,"lesson_id":21,"topic":"Business English","language":"English"} []
+[2025-10-29T19:28:54.049001+00:00] gemini.INFO: GeminiService initialized with model: models/gemini-2.5-flash [] []
+[2025-10-29T19:28:54.054297+00:00] gemini.INFO: Gemini API attempt 1/{3} for topic: Cultural Etiquette [] []
+[2025-10-29T19:29:10.791682+00:00] gemini.INFO: Successfully generated and validated lesson [] []
+[2025-10-29T19:29:10.794818+00:00] gemini.INFO: Lesson generated and persisted successfully {"user_id":29,"lesson_id":22,"topic":"Cultural Etiquette","language":"French"} []
+[2025-10-29T19:34:36.133011+00:00] gemini.INFO: GeminiService initialized with model: models/gemini-2.5-flash [] []
+[2025-10-29T19:34:36.136549+00:00] gemini.INFO: Gemini API attempt 1/{3} for topic: Cultural Etiquette [] []
+[2025-10-29T19:35:01.203019+00:00] gemini.INFO: Successfully generated and validated lesson [] []
+[2025-10-29T19:35:01.206650+00:00] gemini.INFO: Lesson generated and persisted successfully {"user_id":29,"lesson_id":23,"topic":"Cultural Etiquette","language":"French"} []
+[2025-10-30T19:21:18.987233+00:00] gemini.INFO: GeminiService initialized with model: models/gemini-2.5-flash [] []
+[2025-10-30T19:21:18.991961+00:00] gemini.INFO: Gemini API attempt 1/{3} for topic: Travel Phrases [] []
+[2025-10-30T19:21:38.085841+00:00] gemini.INFO: Successfully generated and validated lesson [] []
+[2025-10-30T19:21:38.094617+00:00] gemini.INFO: Lesson generated and persisted successfully {"user_id":33,"lesson_id":24,"topic":"Travel Phrases","language":"Spanish"} []
+[2025-10-30T19:22:31.903355+00:00] gemini.INFO: GeminiService initialized with model: models/gemini-2.5-flash [] []
+[2025-10-30T19:22:31.904960+00:00] gemini.INFO: Gemini API attempt 1/{3} for topic: business words [] []
+[2025-10-30T19:23:04.442790+00:00] gemini.ERROR: Gemini hit token limit {"response":"{\n  \"candidates\": [\n    {\n      \"content\": {\n        \"parts\": [\n          {\n            \"text\": \"{\\n    \\\"topic\\\": \\\"Business English Vocabulary\\\",\\n    \\\"language\\\": \\\"English\\\",\\n    \\\"title\\\": \\\"Essential Business English Vocabulary for Professionals\\\",\\n    \\\"sections\\\": [\\n        {\\n            \\\"heading\\\": \\\"Introduction to Business English\\\",\\n            \\\"body\\\": \\\"Business English is a specialized form of English used in professional contexts. It includes specific vocabulary, phrases,"} []
+[2025-10-30T19:23:04.443041+00:00] gemini.ERROR: Attempt 1 - API error: Gemini response truncated due to token limit. Please reduce lesson scope. [] []
+[2025-10-30T19:23:04.443097+00:00] gemini.INFO: Gemini API attempt 2/{3} for topic: business words [] []
+[2025-10-30T19:23:30.887188+00:00] gemini.INFO: Successfully generated and validated lesson [] []
+[2025-10-30T19:23:30.890697+00:00] gemini.INFO: Lesson generated and persisted successfully {"user_id":32,"lesson_id":25,"topic":"business words","language":"English"} []
+[2025-10-30T19:52:31.515914+00:00] validation.INFO: GeminiService initialized with model: models/gemini-2.5-flash [] []
+[2025-10-30T19:52:40.272492+00:00] validation.INFO: GeminiService initialized with model: models/gemini-2.5-flash [] []
+[2025-10-30T20:05:10.395939+00:00] gemini.INFO: GeminiService initialized with model: models/gemini-2.5-flash [] []
+[2025-10-30T20:05:28.715581+00:00] gemini.INFO: GeminiService initialized with model: models/gemini-2.5-flash [] []
+[2025-10-30T20:05:28.717080+00:00] gemini.INFO: Gemini API attempt 1/{3} for topic: airport words [] []
+[2025-10-30T20:05:44.695483+00:00] gemini.INFO: Successfully generated and validated lesson [] []
+[2025-10-30T20:05:44.704215+00:00] gemini.INFO: Lesson generated and persisted successfully {"user_id":34,"lesson_id":26,"topic":"airport words","language":"English"} []
+[2025-10-31T18:25:27.700254+00:00] gemini.INFO: GeminiService initialized with model: models/gemini-2.5-flash [] []
+[2025-10-31T18:32:34.965826+00:00] gemini.INFO: GeminiService initialized with model: models/gemini-2.5-flash [] []
+[2025-10-31T18:32:34.967415+00:00] gemini.INFO: Gemini API attempt 1/{3} for topic: travel phrases [] []
+[2025-10-31T18:32:56.106710+00:00] gemini.INFO: Successfully generated and validated lesson [] []
+[2025-10-31T18:32:56.111561+00:00] gemini.INFO: Lesson generated and persisted successfully {"user_id":35,"lesson_id":27,"topic":"travel phrases","language":"English"} []
+[2025-10-31T18:55:31.570906+00:00] gemini.INFO: GeminiService initialized with model: models/gemini-2.5-flash [] []
+[2025-10-31T18:55:31.574281+00:00] gemini.INFO: Gemini API attempt 1/{3} for topic: Restaurant Ordering [] []
+[2025-10-31T18:55:59.860141+00:00] gemini.INFO: Successfully generated and validated lesson [] []
+[2025-10-31T18:55:59.869729+00:00] gemini.INFO: Lesson generated and persisted successfully {"user_id":36,"lesson_id":28,"topic":"Restaurant Ordering","language":"English"} []
+[2025-11-01T15:14:40.058348+00:00] gemini.INFO: GeminiService initialized with model: models/gemini-2.5-flash [] []
+[2025-11-01T15:14:40.065518+00:00] gemini.INFO: Gemini API attempt 1/{3} for topic: Airport phrases [] []
+[2025-11-01T15:15:05.207640+00:00] gemini.INFO: Successfully generated and validated lesson [] []
+[2025-11-01T15:15:05.211618+00:00] gemini.INFO: Lesson generated and persisted successfully {"user_id":37,"lesson_id":29,"topic":"Airport phrases","language":"English"} []
+[2025-11-01T15:17:17.380778+00:00] validation.INFO: GeminiService initialized with model: models/gemini-2.5-flash [] []
+[2025-11-01T15:17:17.382563+00:00] validation.INFO: Validating answer with AI {"question":"What is the purpose of a 'boarding pass'?","user_answer":"allows you to board the plane","expected_answer":"A boarding pass is a document that allows a passenger to board an airplane.. It contains important flight information like flight number, gate, and seat number."} []
+[2025-11-01T15:24:03.804139+00:00] gemini.INFO: GeminiService initialized with model: models/gemini-2.5-flash [] []
+[2025-11-01T15:24:03.807992+00:00] gemini.INFO: Gemini API attempt 1/{3} for topic: Practice small talk in Spanish [] []
+[2025-11-01T15:24:31.890241+00:00] gemini.ERROR: Gemini hit token limit {"response":"{\n  \"candidates\": [\n    {\n      \"content\": {\n        \"parts\": [\n          {\n            \"text\": \"{\\n    \\\"topic\\\": \\\"Practice small talk in Spanish\\\",\\n    \\\"language\\\": \\\"English\\\",\\n    \\\"title\\\": \\\"Mastering Small Talk in Spanish: Everyday Conversations\\\",\\n    \\\"sections\\\": [\\n        {\\n            \\\"heading\\\": \\\"Introduction to Small Talk in Spanish\\\",\\n            \\\"body\\\": \\\"Small talk is an essential part of everyday communication. It helps you connect with people, break the ice, and sh"} []
+[2025-11-01T15:24:31.890376+00:00] gemini.ERROR: Attempt 1 - API error: Gemini response truncated due to token limit. Please reduce lesson scope. [] []
+[2025-11-01T15:24:31.890405+00:00] gemini.INFO: Gemini API attempt 2/{3} for topic: Practice small talk in Spanish [] []
+[2025-11-01T15:25:04.555802+00:00] gemini.ERROR: Gemini hit token limit {"response":"{\n  \"candidates\": [\n    {\n      \"content\": {\n        \"parts\": [\n          {\n            \"text\": \"{\\n    \\\"topic\\\": \\\"Practice small talk in Spanish\\\",\\n    \\\"language\\\": \\\"English\\\",\\n    \\\"title\\\": \\\"Mastering Casual Conversations: Small Talk in Spanish\\\",\\n    \\\"sections\\\": [\\n        {\\n            \\\"heading\\\": \\\"Key Vocabulary\\\",\\n            \\\"body\\\": \\\"Here are some essential words and phrases to help you start and maintain small talk in Spanish.\\\\n\\\\nTerm: Hola\\\\nDefinition: Hello. A univ"} []
+[2025-11-01T15:25:04.555984+00:00] gemini.ERROR: Attempt 2 - API error: Gemini response truncated due to token limit. Please reduce lesson scope. [] []
+[2025-11-01T15:25:04.556016+00:00] gemini.INFO: Gemini API attempt 3/{3} for topic: Practice small talk in Spanish [] []
+[2025-11-01T15:25:32.433623+00:00] gemini.ERROR: Gemini hit token limit {"response":"{\n  \"candidates\": [\n    {\n      \"content\": {\n        \"parts\": [\n          {\n            \"text\": \"{\\n    \\\"topic\\\": \\\"Practice small talk in Spanish\\\",\\n    \\\"language\\\": \\\"English\\\",\\n    \\\"title\\\": \\\"Making Connections: Your Guide to Spanish Small Talk\\\",\\n    \\\"sections\\\": [\\n        {\\n            \\\"heading\\\": \\\"Introduction to Small Talk in Spanish\\\",\\n            \\\"body\\\": \\\"Small talk is an essential part of everyday communication, helping us connect with others, break the ice, and navigat"} []
+[2025-11-01T15:25:32.433774+00:00] gemini.ERROR: Attempt 3 - API error: Gemini response truncated due to token limit. Please reduce lesson scope. [] []
+[2025-11-01T15:25:32.433801+00:00] gemini.ERROR: All Gemini API attempts exhausted [] []
+[2025-11-01T15:25:32.433830+00:00] gemini.ERROR: Generation service error {"user_id":38,"topic":"Practice small talk in Spanish","language":"English","attempt_count":1,"error":"Failed to generate valid lesson after 3 attempts: Gemini response truncated due to token limit. Please reduce lesson scope."} []
+[2025-11-01T15:26:57.857326+00:00] gemini.INFO: GeminiService initialized with model: models/gemini-2.5-flash [] []
+[2025-11-01T15:26:57.859277+00:00] gemini.INFO: Gemini API attempt 1/{3} for topic: airport phrases [] []
+[2025-11-01T15:27:24.183553+00:00] gemini.INFO: Successfully generated and validated lesson [] []
+[2025-11-01T15:27:24.192820+00:00] gemini.INFO: Lesson generated and persisted successfully {"user_id":38,"lesson_id":30,"topic":"airport phrases","language":"English"} []
+[2025-11-01T15:30:43.684639+00:00] gemini.INFO: GeminiService initialized with model: models/gemini-2.5-flash [] []
+[2025-11-01T15:30:50.910426+00:00] gemini.INFO: GeminiService initialized with model: models/gemini-2.5-flash [] []
+[2025-11-01T15:30:50.912160+00:00] gemini.INFO: Gemini API attempt 1/{3} for topic: Shopping at the Mall [] []
+[2025-11-01T15:31:25.220575+00:00] gemini.ERROR: Gemini hit token limit {"response":"{\n  \"candidates\": [\n    {\n      \"content\": {\n        \"parts\": [\n          {\n            \"text\": \"{\\n    \\\"topic\\\": \\\"Shopping at the Mall\\\",\\n    \\\"language\\\": \\\"English\\\",\\n    \\\"title\\\": \\\"Shopping at the Mall: Essential English for Shoppers\\\",\\n    \\\"sections\\\": [\\n        {\\n            \\\"heading\\\": \\\"Key Vocabulary\\\",\\n            \\\"body\\\": \\\"Here are some important words and phrases you will hear and use when shopping at a mall:\\\\n\\\\nMall: A large indoor shopping center with many stores, r"} []
+[2025-11-01T15:31:25.220728+00:00] gemini.ERROR: Attempt 1 - API error: Gemini response truncated due to token limit. Please reduce lesson scope. [] []
+[2025-11-01T15:31:25.220762+00:00] gemini.INFO: Gemini API attempt 2/{3} for topic: Shopping at the Mall [] []
+[2025-11-01T15:31:58.505765+00:00] gemini.ERROR: Gemini hit token limit {"response":"{\n  \"candidates\": [\n    {\n      \"content\": {\n        \"parts\": [\n          {\n            \"text\": \"{\\n    \\\"topic\\\": \\\"Shopping at the Mall\\\",\\n    \\\"language\\\": \\\"English\\\",\\n    \\\"title\\\": \\\"Your Practical Guide to Shopping at the Mall\\\",\\n    \\\"sections\\\": [\\n        {\\n            \\\"heading\\\": \\\"Key Vocabulary\\\",\\n            \\\"body\\\": \\\"Understanding these words will help you navigate the mall and communicate effectively.\\\\n\\\\n1. Mall: A large indoor shopping center with many stores. Example:"} []
+[2025-11-01T15:31:58.505932+00:00] gemini.ERROR: Attempt 2 - API error: Gemini response truncated due to token limit. Please reduce lesson scope. [] []
+[2025-11-01T15:31:58.505977+00:00] gemini.INFO: Gemini API attempt 3/{3} for topic: Shopping at the Mall [] []
+[2025-11-01T15:32:32.726981+00:00] gemini.ERROR: Gemini hit token limit {"response":"{\n  \"candidates\": [\n    {\n      \"content\": {\n        \"parts\": [\n          {\n            \"text\": \"{\\n    \\\"topic\\\": \\\"Shopping at the Mall\\\",\\n    \\\"language\\\": \\\"English\\\",\\n    \\\"title\\\": \\\"Your Guide to Shopping at the Mall\\\",\\n    \\\"sections\\\": [\\n        {\\n            \\\"heading\\\": \\\"Key Vocabulary\\\",\\n            \\\"body\\\": \\\"Here are some important words and phrases you will hear and use when shopping at a mall:\\\\n\\\\nDepartment store: A large store divided into sections, each selling differ"} []
+[2025-11-01T15:32:32.727129+00:00] gemini.ERROR: Attempt 3 - API error: Gemini response truncated due to token limit. Please reduce lesson scope. [] []
+[2025-11-01T15:32:32.727158+00:00] gemini.ERROR: All Gemini API attempts exhausted [] []
+[2025-11-01T15:32:32.727190+00:00] gemini.ERROR: Generation service error {"user_id":39,"topic":"Shopping at the Mall","language":"English","attempt_count":1,"error":"Failed to generate valid lesson after 3 attempts: Gemini response truncated due to token limit. Please reduce lesson scope."} []
+[2025-11-01T15:33:18.767699+00:00] gemini.INFO: GeminiService initialized with model: models/gemini-2.5-flash [] []
+[2025-11-01T15:33:18.769373+00:00] gemini.INFO: Gemini API attempt 1/{3} for topic: Hotel Check-in [] []
+[2025-11-01T15:33:49.615232+00:00] gemini.INFO: Successfully generated and validated lesson [] []
+[2025-11-01T15:33:49.618524+00:00] gemini.INFO: Lesson generated and persisted successfully {"user_id":40,"lesson_id":31,"topic":"Hotel Check-in","language":"English"} []
+[2025-11-01T15:51:54.790139+00:00] gemini.INFO: GeminiService initialized with model: models/gemini-2.5-flash [] []
+[2025-11-01T15:51:54.792228+00:00] gemini.INFO: Gemini API attempt 1/{3} for topic: Airport and travel phrases [] []
+[2025-11-01T15:52:26.609205+00:00] gemini.ERROR: Gemini hit token limit {"response":"{\n  \"candidates\": [\n    {\n      \"content\": {\n        \"parts\": [\n          {\n            \"text\": \"{\\n    \\\"topic\\\": \\\"Airport and travel phrases\\\",\\n    \\\"language\\\": \\\"English\\\",\\n    \\\"title\\\": \\\"Navigating the Airport: Essential English Phrases\\\",\\n    \\\"sections\\\": [\\n        {\\n            \\\"heading\\\": \\\"Key Vocabulary\\\",\\n            \\\"body\\\": \\\"Here are some important words and phrases you will hear and use at the airport.\\\\n\\\\nBoarding pass: A document allowing you to board an aircraft. E"} []
+[2025-11-01T15:52:26.609432+00:00] gemini.ERROR: Attempt 1 - API error: Gemini response truncated due to token limit. Please reduce lesson scope. [] []
+[2025-11-01T15:52:26.609526+00:00] gemini.INFO: Gemini API attempt 2/{3} for topic: Airport and travel phrases [] []
+[2025-11-01T15:52:49.895848+00:00] gemini.INFO: Successfully generated and validated lesson [] []
+[2025-11-01T15:52:49.905397+00:00] gemini.INFO: Lesson generated and persisted successfully {"user_id":41,"lesson_id":32,"topic":"Airport and travel phrases","language":"English"} []
+[2025-11-01T15:58:48.255675+00:00] gemini.INFO: GeminiService initialized with model: models/gemini-2.5-flash [] []
+[2025-11-01T15:58:48.257104+00:00] gemini.INFO: Gemini API attempt 1/{3} for topic: Airport Travel [] []
+[2025-11-01T15:59:07.005329+00:00] gemini.INFO: Successfully generated and validated lesson [] []
+[2025-11-01T15:59:07.008339+00:00] gemini.INFO: Lesson generated and persisted successfully {"user_id":42,"lesson_id":33,"topic":"Airport Travel","language":"English"} []
+[2025-11-01T16:02:04.112412+00:00] gemini.INFO: GeminiService initialized with model: models/gemini-2.5-flash [] []
+[2025-11-01T16:02:25.348873+00:00] gemini.INFO: GeminiService initialized with model: models/gemini-2.5-flash [] []
+[2025-11-01T16:02:25.350393+00:00] gemini.INFO: Gemini API attempt 1/{3} for topic: Business phrases [] []
+[2025-11-01T16:02:45.937391+00:00] gemini.INFO: Successfully generated and validated lesson [] []
+[2025-11-01T16:02:45.940362+00:00] gemini.INFO: Lesson generated and persisted successfully {"user_id":43,"lesson_id":34,"topic":"Business phrases","language":"English"} []
+[2025-11-01T16:14:04.851551+00:00] gemini.INFO: GeminiService initialized with model: models/gemini-2.5-flash [] []
+[2025-11-01T16:14:04.853061+00:00] gemini.INFO: Gemini API attempt 1/{3} for topic: quadratic function [] []
+[2025-11-01T16:14:25.999285+00:00] gemini.INFO: Successfully generated and validated lesson [] []
+[2025-11-01T16:14:26.007017+00:00] gemini.INFO: Lesson generated and persisted successfully {"user_id":44,"lesson_id":35,"topic":"quadratic function","language":"English"} []
+[2025-11-01T16:14:36.718728+00:00] gemini.INFO: GeminiService initialized with model: models/gemini-2.5-flash [] []
+[2025-11-03T16:06:54.875393+00:00] gemini.INFO: GeminiService initialized with model: models/gemini-2.5-flash [] []
+[2025-11-03T16:06:54.882794+00:00] gemini.INFO: Gemini API attempt 1/{3} for topic: Travel phrases [] []
+[2025-11-03T16:07:20.710911+00:00] gemini.INFO: Successfully generated and validated lesson [] []
+[2025-11-03T16:07:20.714349+00:00] gemini.INFO: Lesson generated and persisted successfully {"user_id":45,"lesson_id":36,"topic":"Travel phrases","language":"English"} []
+[2025-11-04T18:16:40.186969+00:00] gemini.INFO: GeminiService initialized with model: models/gemini-2.5-flash [] []
+[2025-11-04T18:16:40.191106+00:00] gemini.INFO: Gemini API attempt 1/{3} for topic: Travel phrases [] []
+[2025-11-04T18:16:58.658395+00:00] gemini.INFO: Successfully generated and validated lesson [] []
+[2025-11-04T18:16:58.662893+00:00] gemini.INFO: Lesson generated and persisted successfully {"user_id":46,"lesson_id":37,"topic":"Travel phrases","language":"English"} []
+[2025-11-04T18:36:07.351058+00:00] gemini.INFO: GeminiService initialized with model: models/gemini-2.5-flash [] []
+[2025-11-04T18:36:07.354908+00:00] gemini.INFO: Gemini API attempt 1/{3} for topic: Airport phrases [] []
+[2025-11-04T18:36:26.523326+00:00] gemini.INFO: Successfully generated and validated lesson [] []
+[2025-11-04T18:36:26.526781+00:00] gemini.INFO: Lesson generated and persisted successfully {"user_id":47,"lesson_id":38,"topic":"Airport phrases","language":"English"} []
+[2025-11-05T12:31:55.353685+00:00] gemini.INFO: GeminiService initialized with model: models/gemini-2.5-flash [] []
+[2025-11-05T12:31:55.358183+00:00] gemini.INFO: Gemini API attempt 1/{3} for topic: ffefef [] []
+[2025-11-05T12:32:15.199542+00:00] gemini.ERROR: Gemini hit token limit {"response":"{\n  \"candidates\": [\n    {\n      \"content\": {\n        \"parts\": [\n          {\n            \"text\": \"{\\n    \\\"topic\\\": \\\"Understanding and Describing New Concepts (ffefef)\\\",\\n    \\\"language\\\": \\\"English\\\",\\n    \\\"title\\\": \\\"Exploring the Unknown: Understanding 'ffefef'\\\",\\n    \\\"sections\\\": [\\n        {\\n            \\\"heading\\\": \\\"Key Vocabulary\\\",\\n            \\\"body\\\": \\\"Unfamiliar: Not known or recognized.\\\\nExample: The new device was unfamiliar to me.\\\\nConcept: An abstract idea.\\\\nExample: Un"} []
+[2025-11-05T12:32:15.199776+00:00] gemini.ERROR: Attempt 1 - API error: Gemini response truncated due to token limit. Please reduce lesson scope. [] []
+[2025-11-05T12:32:15.199812+00:00] gemini.INFO: Gemini API attempt 2/{3} for topic: ffefef [] []
+[2025-11-05T12:32:34.289336+00:00] gemini.ERROR: Gemini hit token limit {"response":"{\n  \"candidates\": [\n    {\n      \"content\": {\n        \"parts\": [\n          {\n            \"text\": \"{\\n    \\\"topic\\\": \\\"ffefef\\\",\\n    \\\"language\\\": \\\"English\\\",\\n    \\\"title\\\": \\\"Navigating Unfamiliar Situations\\\",\\n    \\\"sections\\\": [\\n        {\\n            \\\"heading\\\": \\\"Key Vocabulary\\\",\\n            \\\"body\\\": \\\"Unfamiliar: Not known or recognized.\\\\nExample: The new software was unfamiliar to the team.\\\\nClarify: To make something clearer or easier to understand.\\\\nExample: Please clarify the"} []
+[2025-11-05T12:32:34.332093+00:00] gemini.ERROR: Attempt 2 - API error: Gemini response truncated due to token limit. Please reduce lesson scope. [] []
+[2025-11-05T12:32:34.332178+00:00] gemini.INFO: Gemini API attempt 3/{3} for topic: ffefef [] []
+[2025-11-05T12:32:48.206801+00:00] gemini.INFO: Successfully generated and validated lesson [] []
+[2025-11-05T12:32:48.239902+00:00] gemini.INFO: Lesson generated and persisted successfully {"user_id":48,"lesson_id":39,"topic":"ffefef","language":"English"} []
+[2025-11-05T19:43:54.858845+00:00] gemini.INFO: GeminiService initialized with model: models/gemini-2.5-flash [] []
+[2025-11-05T19:43:54.863886+00:00] gemini.INFO: Gemini API attempt 1/{3} for topic: I'm a product designer and want to learn my job expressions and phrases [] []
+[2025-11-05T19:44:06.850926+00:00] gemini.INFO: Successfully generated and validated lesson [] []
+[2025-11-05T19:44:06.854994+00:00] gemini.INFO: Lesson generated and persisted successfully {"user_id":49,"lesson_id":40,"topic":"I'm a product designer and want to learn my job expressions and phrases","language":"English"} []
+[2025-11-06T01:30:04.725272+00:00] gemini.INFO: GeminiService initialized with model: models/gemini-2.5-flash [] []
+[2025-11-06T01:30:04.729978+00:00] gemini.INFO: Gemini API attempt 1/{3} for topic: Business phrases [] []
+[2025-11-06T01:30:16.301643+00:00] gemini.INFO: Successfully generated and validated lesson [] []
+[2025-11-06T01:30:16.305760+00:00] gemini.INFO: Lesson generated and persisted successfully {"user_id":50,"lesson_id":41,"topic":"Business phrases","language":"English"} []
+[2025-11-06T21:09:52.698810+00:00] gemini.INFO: GeminiService initialized with model: models/gemini-2.5-flash [] []
+[2025-11-06T21:09:52.703733+00:00] gemini.INFO: Gemini API attempt 1/{3} for topic: Business phrases [] []
+[2025-11-06T21:10:04.350429+00:00] gemini.INFO: Successfully generated and validated lesson [] []
+[2025-11-06T21:10:04.354980+00:00] gemini.INFO: Lesson generated and persisted successfully {"user_id":51,"lesson_id":42,"topic":"Business phrases","language":"English"} []
+[2025-11-08T19:59:03.276233+00:00] gemini.INFO: GeminiService initialized with model: models/gemini-2.5-flash [] []
+[2025-11-09T15:51:55.063490+00:00] gemini.INFO: GeminiService initialized with model: models/gemini-2.5-flash [] []
+[2025-11-09T15:51:55.067930+00:00] gemini.INFO: Gemini API attempt 1/{3} for topic: Airport and travel phrases [] []
+[2025-11-09T15:52:07.151950+00:00] gemini.INFO: Successfully generated and validated lesson [] []
+[2025-11-09T15:52:07.163291+00:00] gemini.INFO: Lesson generated and persisted successfully {"user_id":51,"lesson_id":43,"topic":"Airport and travel phrases","language":"English"} []
+[2025-11-09T17:41:07.803311+00:00] gemini.INFO: GeminiService initialized with model: models/gemini-2.5-flash [] []
+[2025-11-09T17:41:07.806226+00:00] gemini.INFO: Gemini API attempt 1/{3} for topic: Business phrases, generates 20 vocabularies , Phrases, and questions [] []
+[2025-11-09T17:41:22.680257+00:00] gemini.INFO: Successfully generated and validated lesson [] []
+[2025-11-09T17:41:22.686826+00:00] gemini.INFO: Lesson generated and persisted successfully {"user_id":51,"lesson_id":44,"topic":"Business phrases, generates 20 vocabularies , Phrases, and questions","language":"English"} []
+[2025-11-09T17:53:31.494235+00:00] gemini.INFO: GeminiService initialized with model: models/gemini-2.5-flash [] []
+[2025-11-09T17:53:31.495671+00:00] gemini.INFO: Gemini API attempt 1/{3} for topic: play tennis [] []
+[2025-11-09T17:53:46.964303+00:00] gemini.INFO: Successfully generated and validated lesson [] []
+[2025-11-09T17:53:46.967176+00:00] gemini.INFO: Lesson generated and persisted successfully {"user_id":51,"lesson_id":45,"topic":"play tennis","language":"English"} []
+[2026-05-22T15:54:25.969276+00:00] gemini.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] []
+[2026-05-22T15:54:25.976886+00:00] gemini.INFO: Gemini API attempt 1/{3} for topic: how to code on python [] []
+[2026-05-22T15:54:40.887918+00:00] gemini.INFO: Successfully generated and validated lesson [] []
+[2026-05-22T15:54:40.897943+00:00] gemini.INFO: Lesson generated and persisted successfully {"user_id":2,"lesson_id":1,"topic":"how to code on python","language":"English"} []
+[2026-05-22T15:56:28.479432+00:00] gemini.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] []
+[2026-05-22T15:56:32.502344+00:00] gemini.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] []
+[2026-05-22T17:01:58.055689+00:00] gemini.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] []
+[2026-05-22T17:01:58.059685+00:00] gemini.INFO: Gemini API attempt 1/{3} for topic: how to learn korean [] []
+[2026-05-22T17:02:14.756748+00:00] gemini.INFO: Successfully generated and validated lesson [] []
+[2026-05-22T17:02:14.766651+00:00] gemini.INFO: Lesson generated and persisted successfully {"user_id":4,"lesson_id":2,"topic":"how to learn korean","language":"English"} []
+[2026-05-22T17:02:48.753177+00:00] gemini.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] []
+[2026-05-22T17:05:34.190944+00:00] gemini.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] []
+[2026-05-22T17:08:58.697023+00:00] gemini.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] []
+[2026-05-22T17:08:58.698596+00:00] gemini.INFO: Gemini API attempt 1/{3} for topic: learning python [] []
+[2026-05-22T17:09:13.905202+00:00] gemini.INFO: Successfully generated and validated lesson [] []
+[2026-05-22T17:09:13.910220+00:00] gemini.INFO: Lesson generated and persisted successfully {"user_id":4,"lesson_id":3,"topic":"learning python","language":"English"} []
+[2026-05-22T19:26:20.569289+00:00] gemini.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] []
+[2026-05-22T19:26:20.575838+00:00] gemini.INFO: Gemini API attempt 1/{3} for topic: learning java [] []
+[2026-05-22T19:26:32.266971+00:00] gemini.INFO: Successfully generated and validated lesson [] []
+[2026-05-22T19:26:32.276347+00:00] gemini.INFO: Lesson generated and persisted successfully {"user_id":6,"lesson_id":4,"topic":"learning java","language":"English"} []
+[2026-05-22T19:41:54.295470+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"bcb10d8"}
+[2026-05-22T19:49:34.424989+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"451082a"}
+[2026-05-22T19:50:01.616003+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"a46e353"}
+[2026-05-22T19:50:24.825269+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"2351fc0"}
+[2026-05-22T19:50:46.579391+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"48b9ace"}
+[2026-05-22T19:50:46.709092+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"38b486f"}
+[2026-05-22T19:50:49.577898+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"1a074c1"}
+[2026-05-22T19:50:55.726286+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"76a665d"}
+[2026-05-22T19:51:19.653932+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"76689cc"}
+[2026-05-22T19:52:23.132933+00:00] gemini.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] []
+[2026-05-22T19:57:22.399627+00:00] gemini.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] []
+[2026-05-22T19:57:22.400928+00:00] gemini.INFO: Gemini API attempt 1/{3} for topic: korean language [] []
+[2026-05-22T19:57:35.601721+00:00] gemini.INFO: Successfully generated and validated lesson [] []
+[2026-05-22T19:57:35.610244+00:00] gemini.INFO: Lesson generated and persisted successfully {"user_id":4,"lesson_id":6,"topic":"korean language","language":"English"} []
+[2026-05-22T19:58:06.474047+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"4cb0b0f"}
+[2026-05-22T19:58:19.457618+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"5424aec"}
+[2026-05-22T19:58:45.758029+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"07e1c40"}
+[2026-05-22T19:59:03.698487+00:00] gemini.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] []
+[2026-05-22T19:59:03.699704+00:00] gemini.INFO: Gemini API attempt 1/{3} for topic: Airport and travel phrases [] []
+[2026-05-22T19:59:14.110598+00:00] gemini.INFO: Successfully generated and validated lesson [] []
+[2026-05-22T19:59:14.117599+00:00] gemini.INFO: Lesson generated and persisted successfully {"user_id":4,"lesson_id":8,"topic":"Airport and travel phrases","language":"English"} []
+[2026-05-22T19:59:31.921804+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"f356a25"}
+[2026-05-22T19:59:40.504565+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"953cab9"}
+[2026-05-22T19:59:50.444766+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"036e6cc"}
+[2026-05-22T19:59:52.640759+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"d1e2883"}
+[2026-05-22T19:59:57.249848+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"b855969"}
+[2026-05-22T20:00:03.264207+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"3a25483"}
+[2026-05-22T20:00:03.396036+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"93a6835"}
+[2026-05-22T20:00:24.617222+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"a80e3b9"}
+[2026-05-22T20:00:30.351000+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"0807a7a"}
+[2026-05-22T20:00:31.483398+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"63a51c9"}
+[2026-05-22T20:00:35.025917+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"a837485"}
+[2026-05-22T20:00:36.793828+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"ead54db"}
+[2026-05-22T20:02:16.081961+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"096cbb8"}
+[2026-05-22T20:02:39.584107+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"bdb549a"}
+[2026-05-22T20:41:18.010799+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"d6c46fc"}
+[2026-05-22T20:41:19.863299+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"450a8f3"}
+[2026-05-23T05:46:23.390636+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"60d3fee"}
+[2026-05-23T05:46:54.096798+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"d14c9bc"}
+[2026-05-23T05:47:36.508972+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"56bcb45"}
+[2026-05-29T15:35:08.666286+02:00] plans.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] []
+[2026-05-29T15:35:23.407668+02:00] plans.ERROR: Daily plan job failed {"plan_id":2,"day":2,"error":"Failed to send email: SMTP Error: Could not authenticate."} []
+[2026-05-29T15:35:38.153336+02:00] plans.ERROR: Daily plan job failed {"plan_id":3,"day":2,"error":"Failed to send email: SMTP Error: Could not authenticate."} []
+[2026-05-29T15:35:55.591681+02:00] plans.ERROR: Daily plan job failed {"plan_id":1,"day":2,"error":"Failed to send email: SMTP Error: Could not authenticate."} []
+[2026-05-29T15:36:13.379106+02:00] plans.ERROR: Daily plan job failed {"plan_id":4,"day":2,"error":"Failed to send email: SMTP Error: Could not authenticate."} []
+[2026-05-29T15:36:26.591477+02:00] plans.ERROR: Daily plan job failed {"plan_id":3,"day":3,"error":"Failed to send email: SMTP Error: Could not authenticate."} []
+[2026-05-29T15:36:47.471340+02:00] plans.ERROR: Daily plan job failed {"plan_id":1,"day":3,"error":"Failed to send email: SMTP Error: Could not authenticate."} []
+[2026-05-29T15:37:05.281877+02:00] plans.ERROR: Daily plan job failed {"plan_id":2,"day":3,"error":"Failed to send email: SMTP Error: Could not authenticate."} []
+[2026-05-29T15:37:18.502544+02:00] plans.ERROR: Daily plan job failed {"plan_id":4,"day":3,"error":"Failed to send email: SMTP Error: Could not authenticate."} []
+[2026-05-29T15:37:37.125152+02:00] plans.ERROR: Daily plan job failed {"plan_id":3,"day":4,"error":"Failed to send email: SMTP Error: Could not authenticate."} []
+[2026-05-29T15:37:52.451195+02:00] plans.ERROR: Daily plan job failed {"plan_id":1,"day":4,"error":"Failed to send email: SMTP Error: Could not authenticate."} []
+[2026-05-29T15:38:10.357525+02:00] plans.ERROR: Daily plan job failed {"plan_id":2,"day":4,"error":"Failed to send email: SMTP Error: Could not authenticate."} []
+[2026-05-29T15:38:26.402474+02:00] plans.ERROR: Daily plan job failed {"plan_id":4,"day":4,"error":"Failed to send email: SMTP Error: Could not authenticate."} []
+[2026-05-29T15:38:44.103917+02:00] plans.ERROR: Daily plan job failed {"plan_id":2,"day":5,"error":"Failed to send email: SMTP Error: Could not authenticate."} []
+[2026-05-29T15:39:00.386806+02:00] plans.ERROR: Daily plan job failed {"plan_id":3,"day":5,"error":"Failed to send email: SMTP Error: Could not authenticate."} []
+[2026-05-29T15:39:21.342939+02:00] plans.ERROR: Daily plan job failed {"plan_id":1,"day":5,"error":"Failed to send email: SMTP Error: Could not authenticate."} []
+[2026-05-29T15:39:35.227534+02:00] plans.ERROR: Daily plan job failed {"plan_id":4,"day":5,"error":"Failed to send email: SMTP Error: Could not authenticate."} []
+[2026-05-29T15:39:52.605816+02:00] plans.ERROR: Daily plan job failed {"plan_id":2,"day":6,"error":"Failed to send email: SMTP Error: Could not authenticate."} []
+[2026-05-29T15:40:08.379722+02:00] plans.ERROR: Daily plan job failed {"plan_id":3,"day":6,"error":"Failed to send email: SMTP Error: Could not authenticate."} []
+[2026-05-29T15:40:24.204562+02:00] plans.ERROR: Daily plan job failed {"plan_id":1,"day":6,"error":"Failed to send email: SMTP Error: Could not authenticate."} []
+[2026-05-29T15:40:44.523879+02:00] plans.ERROR: Daily plan job failed {"plan_id":4,"day":6,"error":"Failed to send email: SMTP Error: Could not authenticate."} []
+[2026-05-29T15:46:51.673421+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"07ba54b"}
+[2026-05-29T15:47:04.147274+02:00] teachme-api.WARNING: Retryable HTTP error 429 (attempt 1/3): Client error: `POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key=***REDACTED***` resulted in a `429 Too Many Requests` response: {   "error": {     "code": 429,     "message": "You exceeded your current quota, please check your plan and billing deta (truncated...)  [] {"uid":"07ba54b"}
+[2026-05-29T15:47:04.147337+02:00] teachme-api.INFO: Exponential backoff: waiting 0.5s before HTTP retry... [] {"uid":"07ba54b"}
+[2026-05-29T15:47:04.740974+02:00] teachme-api.WARNING: Retryable HTTP error 429 (attempt 2/3): Client error: `POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key=***REDACTED***` resulted in a `429 Too Many Requests` response: {   "error": {     "code": 429,     "message": "You exceeded your current quota, please check your plan and billing deta (truncated...)  [] {"uid":"07ba54b"}
+[2026-05-29T15:47:04.741043+02:00] teachme-api.INFO: Exponential backoff: waiting 1s before HTTP retry... [] {"uid":"07ba54b"}
+[2026-05-29T15:47:05.841927+02:00] teachme-api.WARNING: Retryable HTTP error 429 (attempt 3/3): Client error: `POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key=***REDACTED***` resulted in a `429 Too Many Requests` response: {   "error": {     "code": 429,     "message": "You exceeded your current quota, please check your plan and billing deta (truncated...)  [] {"uid":"07ba54b"}
+[2026-05-29T15:53:06.771258+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"1470e59"}
+[2026-05-29T15:54:59.327314+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"3d14850"}
+[2026-05-29T15:59:23.626981+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"aad2f2a"}
+[2026-05-29T15:59:32.330901+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"10ea8a8"}
+[2026-05-29T16:12:40.826390+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"9069977"}
+[2026-05-29T16:12:50.102083+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"3364642"}
+[2026-05-29T16:13:18.504861+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"ed1ed9c"}
+[2026-05-29T23:25:49.863235+02:00] plans.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] []
+[2026-05-29T23:53:07.304462+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"f130e3a"}
+[2026-05-29T23:53:29.453878+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"83e9117"}
+[2026-05-29T23:54:12.243559+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"bcba9ef"}
+[2026-05-29T23:54:27.454849+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"f2029f6"}
+[2026-05-30T02:58:23.858073+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"24b5855"}
+[2026-05-30T02:58:29.229725+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"8425fd4"}
+[2026-05-30T02:58:32.425883+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"6f93215"}
+[2026-05-30T03:54:09.008599+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"a576b2f"}
+[2026-05-30T03:57:12.172732+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"58234eb"}
+[2026-05-30T05:12:21.338820+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"9554fdd"}
+[2026-05-30T05:12:25.240499+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"616ae63"}
+[2026-05-30T11:00:01.164941+02:00] plans.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] []
+[2026-05-31T03:02:17.409505+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"a34ddfc"}
+[2026-05-31T03:02:17.496381+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"d170daf"}
+[2026-05-31T03:02:38.533558+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"d4e1e2b"}
+[2026-05-31T07:12:54.913630+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"c655163"}
+[2026-05-31T11:00:01.265944+02:00] plans.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] []
+[2026-05-31T16:50:59.556885+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"6ea7632"}
+[2026-05-31T17:26:26.965238+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"af9c7e2"}
+[2026-05-31T17:26:34.574644+02:00] teachme-api.WARNING: Retryable HTTP error 503 (attempt 1/3): Server error: `POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent?key=***REDACTED***` resulted in a `503 Service Unavailable` response: {   "error": {     "code": 503,     "message": "This model is currently experiencing high demand. Spikes in demand are u (truncated...)  [] {"uid":"af9c7e2"}
+[2026-05-31T17:26:34.574709+02:00] teachme-api.INFO: Exponential backoff: waiting 0.5s before HTTP retry... [] {"uid":"af9c7e2"}
+[2026-05-31T17:26:40.106418+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"f3e74b0"}
+[2026-05-31T17:26:44.056622+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"7cda0ed"}
+[2026-05-31T18:54:39.491794+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"19e84d3"}
+[2026-05-31T20:41:26.841433+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"528ea18"}
+[2026-05-31T20:41:34.449939+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"f89cf74"}
+[2026-05-31T20:41:42.838156+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"16a8b1e"}
+[2026-05-31T20:43:30.773933+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"a6b03e9"}
+[2026-05-31T20:43:44.526844+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"ebbf291"}
+[2026-05-31T20:44:07.690693+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"f136635"}
+[2026-05-31T20:44:19.670024+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"ecfdac4"}
+[2026-05-31T20:44:23.704592+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"6be6006"}
+[2026-05-31T20:56:03.851399+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"3efb2da"}
+[2026-05-31T20:56:11.852966+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"f119cb9"}
+[2026-05-31T20:56:19.957345+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"6f82d45"}
+[2026-05-31T20:57:42.589527+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"aea52c5"}
+[2026-05-31T20:57:42.887005+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"453a736"}
+[2026-05-31T20:58:00.304583+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"4c2c0dc"}
+[2026-05-31T20:58:44.547829+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"c76094d"}
+[2026-05-31T20:58:44.655056+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"45df687"}
+[2026-05-31T21:35:04.630175+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"c7f2042"}
+[2026-06-01T11:00:01.577431+02:00] plans.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] []
+[2026-06-01T18:05:11.889940+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"d59fa5c"}
+[2026-06-01T18:07:21.779196+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"5f56052"}
+[2026-06-02T04:19:31.387259+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"89af920"}
+[2026-06-02T11:00:02.068078+02:00] plans.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] []
+[2026-06-03T05:16:00.803806+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"1d1746d"}
+[2026-06-03T05:16:03.944465+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"673413e"}
+[2026-06-03T05:16:23.439645+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"3cc4dc2"}
+[2026-06-03T05:17:42.957450+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"124eafc"}
+[2026-06-03T05:17:52.964200+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"60d24a9"}
+[2026-06-03T11:00:01.760731+02:00] plans.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] []
+[2026-06-03T11:27:32.551949+02:00] plans.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] []
+[2026-06-03T11:38:34.777868+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"563109c"}
+[2026-06-03T11:38:44.409779+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"b8408ad"}
+[2026-06-03T11:38:53.539814+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"c8e97af"}
+[2026-06-03T11:39:01.658990+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"d0f285b"}
+[2026-06-03T11:39:15.377838+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"cb036cd"}
+[2026-06-03T11:47:32.450162+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"8eb9fdc"}
+[2026-06-03T11:47:40.234676+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"903c180"}
+[2026-06-03T11:47:48.089404+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"5f54b31"}
+[2026-06-03T11:50:04.690879+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"7cee997"}
+[2026-06-03T11:50:06.521600+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"52af60f"}
+[2026-06-03T11:50:07.055911+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"266557d"}
+[2026-06-03T11:50:19.361261+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"9df58d2"}
+[2026-06-03T11:50:33.154611+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"c5cf0ea"}
+[2026-06-03T14:36:00.729155+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"65a1eb8"}
+[2026-06-03T14:39:57.346827+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"f3e1276"}
+[2026-06-03T14:42:41.647464+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"dbdaba0"}
+[2026-06-03T14:42:50.869221+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"3a6caf1"}
+[2026-06-03T14:43:38.047087+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"891058b"}
+[2026-06-03T15:04:51.603531+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"833fa23"}
+[2026-06-03T15:04:51.738244+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"cd90618"}
+[2026-06-03T15:05:06.749836+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"465f040"}
+[2026-06-03T15:05:27.142010+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"6e12426"}
+[2026-06-03T15:06:41.064617+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"2214ab0"}
+[2026-06-03T15:07:57.963456+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"f108837"}
+[2026-06-04T02:46:43.144721+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"7a62c8d"}
+[2026-06-04T02:47:31.398300+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"bcee40f"}
+[2026-06-04T02:48:02.441250+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"fbd2910"}
+[2026-06-04T02:48:09.757903+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"9be1b6b"}
+[2026-06-04T02:49:27.128670+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"e4815c4"}
+[2026-06-04T02:50:32.970169+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"73560ae"}
+[2026-06-04T02:50:44.417225+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"9c17684"}
+[2026-06-04T04:03:38.286401+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"1346135"}
+[2026-06-04T11:00:01.670374+02:00] plans.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] []
+[2026-06-04T13:39:32.950388+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"c4c6116"}
+[2026-06-04T13:42:40.434978+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"e511881"}
+[2026-06-04T13:45:05.911558+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"7e83d71"}
+[2026-06-05T11:00:01.786186+02:00] plans.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] []
+[2026-06-05T23:10:28.075613+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"cd7b2c0"}
+[2026-06-05T23:11:00.470032+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"ef36d06"}
+[2026-06-06T11:00:01.842148+02:00] plans.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] []
+[2026-06-06T19:21:43.294956+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"96210b4"}
+[2026-06-06T19:21:45.689406+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"e39d574"}
+[2026-06-06T19:21:49.993580+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"107b767"}
+[2026-06-06T19:22:12.503232+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"55ce4d9"}
+[2026-06-06T19:32:07.138951+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"f6b198e"}
+[2026-06-06T19:34:05.025511+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"0bc0019"}
+[2026-06-07T00:51:20.482247+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"bbc2d6b"}
+[2026-06-07T11:00:01.883766+02:00] plans.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] []
+[2026-06-07T16:56:34.677148+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"5a6d4f2"}
+[2026-06-07T17:02:47.004882+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"fc44fc5"}
+[2026-06-07T17:02:47.118421+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"5521f82"}
+[2026-06-07T17:03:36.880851+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"a4fb28f"}
+[2026-06-08T01:51:58.345381+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"478c446"}
+[2026-06-08T11:00:01.842906+02:00] plans.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] []
+[2026-06-09T11:00:01.799502+02:00] plans.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] []
+[2026-06-09T11:00:19.733490+02:00] plans.WARNING: Retryable HTTP error 503 (attempt 1/3): Server error: `POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent?key=***REDACTED***` resulted in a `503 Service Unavailable` response: {   "error": {     "code": 503,     "message": "This model is currently experiencing high demand. Spikes in demand are u (truncated...)  [] []
+[2026-06-09T11:00:19.733552+02:00] plans.INFO: Exponential backoff: waiting 0.5s before HTTP retry... [] []
+[2026-06-09T11:00:35.705585+02:00] plans.WARNING: Retryable HTTP error 503 (attempt 1/3): Server error: `POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent?key=***REDACTED***` resulted in a `503 Service Unavailable` response: {   "error": {     "code": 503,     "message": "This model is currently experiencing high demand. Spikes in demand are u (truncated...)  [] []
+[2026-06-09T11:00:35.705658+02:00] plans.INFO: Exponential backoff: waiting 0.5s before HTTP retry... [] []
+[2026-06-10T11:00:01.846241+02:00] plans.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] []
+[2026-06-11T02:52:28.976521+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"50c48ac"}
+[2026-06-11T02:53:51.762650+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"ae6e1ee"}
+[2026-06-11T11:00:01.147155+02:00] plans.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] []
+[2026-06-12T11:00:01.906997+02:00] plans.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] []
+[2026-06-13T11:00:01.575612+02:00] plans.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] []
+[2026-06-13T18:23:26.091264+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"f2bfcf6"}
+[2026-06-13T19:29:44.576156+02:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"d06f788"}
+[2026-06-14T11:00:01.997299+02:00] plans.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] []
+[2026-06-15T11:00:01.902289+02:00] plans.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] []
+[2026-06-16T11:00:01.267940+02:00] plans.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] []
+[2026-06-17T11:00:01.969155+02:00] plans.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] []
+[2026-06-18T11:00:01.403473+02:00] plans.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] []
+[2026-06-19T11:00:01.421964+02:00] plans.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] []
+[2026-06-19T23:33:56.664401+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"aea60ec"}
+[2026-06-20T12:41:41.706149+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.1-flash-lite [] {"uid":"2cd8b1f"}
+[2026-06-20T14:06:59.604872+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"1d27a53"}
+[2026-06-20T14:07:38.398296+00:00] gemini.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] []
+[2026-06-20T18:42:32.173967+00:00] gemini.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] []
+[2026-06-20T18:57:14.536767+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"e86618e"}
+[2026-06-20T18:57:38.579576+00:00] gemini.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] []
+[2026-06-20T18:57:38.581487+00:00] gemini.INFO: Gemini API attempt 1/{3} for topic: java for beginners  [] []
+[2026-06-20T18:57:49.291637+00:00] gemini.INFO: Successfully generated and validated lesson [] []
+[2026-06-20T18:57:49.295034+00:00] gemini.INFO: Lesson generated and persisted successfully {"user_id":1,"lesson_id":1,"topic":"java for beginners ","language":"English"} []
+[2026-06-20T19:09:06.876551+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"825e058"}
+[2026-06-20T19:24:24.317072+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"75733e4"}
+[2026-06-20T19:24:37.288115+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"5fbb367"}
+[2026-06-20T19:25:14.961867+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"65688c3"}
+[2026-06-20T19:25:15.535176+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"894495e"}
+[2026-06-20T19:32:56.293834+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"afb6749"}
+[2026-06-20T19:33:16.008972+00:00] teachme-api.ERROR: Gemini hit token limit {"response":"{\n  \"candidates\": [\n    {\n      \"content\": {\n        \"parts\": [\n          {\n            \"text\": \"{\\n  \\\"days\\\": [\\n    {\\n      \\\"day\\\": 1,\\n      \\\"title\\\": \\\"Articulating Quantum States and Superposition\\\",\\n      \\\"focus\\\": \\\"Master the precise English terminology and mathematical idioms used to describe state vectors, Hilbert spaces, and superposition dynamics in professional discussions.\\\",\\n      \\\"phase\\\": \\\"foundation\\\",\\n      \\\"objectives\\\": [\\n        \\\"Use advanced verbs like 'span',"} {"uid":"afb6749"}
+[2026-06-20T19:42:48.208481+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"ea31d34"}
+[2026-06-20T19:43:19.452936+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"83f61fc"}
+[2026-06-20T19:43:20.054541+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"c6106da"}
+[2026-06-20T19:47:40.256293+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"7594577"}
+[2026-06-20T20:15:31.382948+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"4f18f70"}
+[2026-06-20T20:25:38.455784+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"e44e30e"}
+[2026-06-20T20:25:44.664553+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"e79af46"}
+[2026-06-20T20:25:44.789103+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"f7b4db3"}
+[2026-06-20T20:45:24.175359+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"b23257f"}
+[2026-06-20T20:45:29.901946+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"59c3465"}
+[2026-06-20T20:55:13.132974+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"a4a3397"}
+[2026-06-20T20:55:19.875715+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"3995495"}
+[2026-06-20T20:55:21.041927+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"0e75503"}
+[2026-06-20T20:55:21.934460+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"4d8a6eb"}
+[2026-06-20T20:55:22.787649+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"8f7b367"}
+[2026-06-20T20:55:22.908915+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"a60bf0c"}
+[2026-06-20T20:56:20.259709+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"4c357c0"}
+[2026-06-20T20:56:20.376435+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"c11f55b"}
+[2026-06-21T16:44:00.730279+00:00] gemini.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] []
+[2026-06-21T16:44:00.735120+00:00] gemini.INFO: Gemini API attempt 1/{3} for topic: Dog training  [] []
+[2026-06-21T16:44:09.988325+00:00] gemini.INFO: Successfully generated and validated lesson [] []
+[2026-06-21T16:44:09.996650+00:00] gemini.INFO: Lesson generated and persisted successfully {"user_id":2,"lesson_id":4,"topic":"Dog training ","language":"English"} []
+[2026-06-21T16:52:08.094745+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"b73c7a8"}
+[2026-07-03T11:09:49.859583+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"936acdc"}
+[2026-07-03T11:59:24.715444+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"7684afe"}
+[2026-07-03T12:02:43.509136+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"189b78c"}
+[2026-07-03T12:03:07.091522+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"79210f1"}
+[2026-07-03T12:03:07.304298+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"1207c31"}
+[2026-07-03T12:03:07.423101+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"0ada682"}
+[2026-07-03T12:03:30.306335+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"9da6f59"}
+[2026-07-03T12:03:36.027448+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"b5484b9"}
+[2026-07-03T14:54:03.250300+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"d7f6869"}
+[2026-07-03T14:54:18.552487+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"8c31e56"}
+[2026-07-03T14:54:18.664182+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"51eba78"}
+[2026-07-03T14:54:22.478720+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"87d8661"}
+[2026-07-03T14:55:52.870662+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"e677494"}
+[2026-07-03T14:55:52.960402+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"8642e5c"}
+[2026-07-03T14:55:53.068977+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"25cc202"}
+[2026-07-03T15:33:37.180773+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"47abb57"}
+[2026-07-03T15:35:32.543744+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"0907afe"}
+[2026-07-03T16:00:03.308276+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"d8981d4"}
+[2026-07-03T17:13:13.771727+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"d4425f1"}
+[2026-07-03T17:13:30.071720+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"d84bfc3"}
+[2026-07-03T17:13:30.185614+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"f709e34"}
+[2026-07-03T17:13:36.601996+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"7b2144a"}
+[2026-07-03T17:13:36.712221+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"20305d4"}
+[2026-07-03T17:13:40.131871+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"408bffa"}
+[2026-07-03T17:13:40.244764+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"1692daa"}
+[2026-07-04T21:02:12.630584+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"b442dae"}
+[2026-07-04T21:03:36.791268+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"d9d2608"}
+[2026-07-04T21:03:36.904018+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"759de4e"}
+[2026-07-04T21:08:06.267957+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"2963844"}
+[2026-07-04T21:08:10.209216+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"df6fc0e"}
+[2026-07-04T21:08:10.325012+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"0c4e241"}
+[2026-07-04T21:11:32.007070+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"676e011"}
+[2026-07-04T21:16:46.898858+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"77067f9"}
+[2026-07-04T21:18:27.565309+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"3f8a150"}
+[2026-07-04T21:26:46.194771+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"696af2b"}
+[2026-07-04T21:43:16.055772+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"62824f7"}
+[2026-07-04T21:44:36.818388+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"93d1141"}
+[2026-07-04T21:44:45.756704+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"7548720"}
+[2026-07-04T21:51:10.991524+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"7201c41"}
+[2026-07-04T21:52:21.853317+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"a4b7d18"}
+[2026-07-04T21:52:26.134204+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"9cfe074"}
+[2026-07-04T21:58:29.857401+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"f0a08f4"}
+[2026-07-04T21:58:32.567911+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"3288af7"}
+[2026-07-04T21:58:45.271341+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"5a88c8d"}
+[2026-07-04T21:59:19.079459+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"13ca85c"}
+[2026-07-04T21:59:58.106277+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"57facca"}
+[2026-07-04T22:00:04.403976+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"3957817"}
+[2026-07-04T22:00:16.535546+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"4c939cf"}
+[2026-07-04T22:00:44.138325+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"d4c4d06"}
+[2026-07-04T22:00:46.630597+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"a4acbcb"}
+[2026-07-04T22:00:46.737783+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"cdc0388"}
+[2026-07-04T22:02:14.070943+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"1716833"}
+[2026-07-04T22:02:17.858808+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"9960188"}
+[2026-07-04T22:02:18.018162+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"c10a620"}
+[2026-07-04T22:09:20.625796+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"bd88d27"}
+[2026-07-04T22:10:01.342650+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"8acf2fa"}
+[2026-07-04T22:10:01.457325+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"9974f55"}
+[2026-07-04T22:14:31.115205+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"5b735d6"}
+[2026-07-04T22:15:08.465868+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"c3ea573"}
+[2026-07-04T22:15:08.607318+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"b3c88a6"}
+[2026-07-04T22:16:01.735725+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"804dcd9"}
+[2026-07-04T22:16:19.473713+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"883b1af"}
+[2026-07-04T22:19:33.384153+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"1206e04"}
+[2026-07-04T22:19:33.494429+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"c52e2f5"}
+[2026-07-04T22:19:42.169063+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"8ebd507"}
+[2026-07-04T22:19:42.281006+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"7db6457"}
+[2026-07-04T22:20:19.430668+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"ccf2c02"}
+[2026-07-04T22:20:19.558848+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"b90242c"}
+[2026-07-04T22:20:22.472358+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"76db7ad"}
+[2026-07-04T22:20:22.656193+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"2376412"}
+[2026-07-04T22:21:58.615857+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"ae9cd26"}
+[2026-07-04T22:23:48.863080+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"320bb6c"}
+[2026-07-04T22:23:51.167411+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"45816bf"}
+[2026-07-04T22:23:55.785386+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"240ad5c"}
+[2026-07-04T22:23:57.136163+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"0e4ab30"}
+[2026-07-04T22:23:57.247088+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"67cddb3"}
+[2026-07-04T22:24:00.930877+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"aea1e45"}
+[2026-07-04T22:24:01.052681+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"25b93f0"}
+[2026-07-04T22:24:40.001387+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"d3aa5b2"}
+[2026-07-04T22:24:40.112019+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"f105a10"}
+[2026-07-04T22:24:43.167184+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"b90d0b8"}
+[2026-07-04T22:24:43.282101+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"e79d12e"}
+[2026-07-04T22:26:40.616285+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"56db46d"}
+[2026-07-04T22:26:50.354183+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"7fd0f21"}
+[2026-07-04T22:26:50.466343+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"1386967"}
+[2026-07-04T22:26:55.289737+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"9777dee"}
+[2026-07-04T22:27:58.697791+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"3929207"}
+[2026-07-04T22:27:58.809291+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"1be8666"}
+[2026-07-04T22:27:59.207021+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"c62b84e"}
+[2026-07-04T22:28:03.403516+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"7947f44"}
+[2026-07-04T22:28:03.519948+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"c9baa1c"}
+[2026-07-04T22:28:17.741593+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"665ea27"}
+[2026-07-04T22:30:15.258682+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"87cadac"}
+[2026-07-04T22:30:17.460081+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"92b7b8b"}
+[2026-07-04T22:30:17.589880+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"467a7a6"}
+[2026-07-04T22:30:19.092141+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"2868560"}
+[2026-07-04T22:31:02.075834+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"2fd9f8b"}
+[2026-07-04T22:31:02.190875+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"c8812f3"}
+[2026-07-04T22:31:02.330021+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"9e8d193"}
+[2026-07-04T22:31:37.963949+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"b9c8985"}
+[2026-07-04T22:31:38.141319+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"43fd3f9"}
+[2026-07-04T22:31:54.769074+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"7997fbe"}
+[2026-07-04T22:31:54.883494+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"71540da"}
+[2026-07-04T22:32:30.879823+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"f5b76f4"}
+[2026-07-04T22:53:26.987908+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"5035625"}
+[2026-07-04T22:55:35.395810+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"57566a0"}
+[2026-07-04T22:55:40.896269+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"0409420"}
+[2026-07-04T22:55:48.691495+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"afafd7b"}
+[2026-07-04T22:55:53.546034+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"cc5b97a"}
+[2026-07-04T22:56:02.609379+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"9881b00"}
+[2026-07-04T22:56:09.072967+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"360d0da"}
+[2026-07-04T22:56:33.722792+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"b358cf7"}
+[2026-07-04T22:56:36.844146+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"cb0cad9"}
+[2026-07-04T22:56:59.916107+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"cf0afa0"}
+[2026-07-04T22:57:00.431487+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"923ba7c"}
+[2026-07-04T22:57:33.332367+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"7124abe"}
+[2026-07-04T22:57:45.651068+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"ae7a55a"}
+[2026-07-04T22:57:54.394448+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"3b92748"}
+[2026-07-04T22:58:32.375866+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"bb9a9ac"}
+[2026-07-04T23:00:44.206419+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"2c554e7"}
+[2026-07-04T23:00:46.860048+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"87497f3"}
+[2026-07-05T11:07:28.337443+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"67e79c8"}
+[2026-07-05T11:12:41.401696+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"de5acee"}
+[2026-07-05T11:12:43.737969+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"26689eb"}
+[2026-07-05T11:12:49.877441+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"3850793"}
+[2026-07-05T11:12:57.119237+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"735e055"}
+[2026-07-05T11:12:59.386184+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"4286a91"}
+[2026-07-05T11:13:19.581093+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"c833c19"}
+[2026-07-05T11:13:20.037661+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"3154eca"}
+[2026-07-05T11:13:26.218997+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"50571e4"}
+[2026-07-05T11:13:41.923837+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"7de0e6e"}
+[2026-07-05T11:13:42.467446+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"54b1a63"}
+[2026-07-05T11:13:47.569094+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"c2bbfc7"}
+[2026-07-05T11:13:52.078230+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"4308ea0"}
+[2026-07-05T11:13:57.461795+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"a027918"}
+[2026-07-05T11:24:46.931994+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"aa4a41f"}
+[2026-07-05T11:24:48.872273+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"9cde899"}
+[2026-07-05T11:45:55.966699+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"dea9a68"}
+[2026-07-05T11:46:24.225700+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"aecfd7e"}
+[2026-07-05T11:46:25.756536+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"bb442eb"}
+[2026-07-05T11:46:40.284074+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"91f6fb1"}
+[2026-07-05T11:46:40.654589+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"b60a040"}
+[2026-07-05T11:50:52.321081+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"900979e"}
+[2026-07-05T11:51:05.827159+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"e121d1b"}
+[2026-07-05T11:51:29.374080+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"b92513b"}
+[2026-07-05T11:51:49.282758+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"8438a88"}
+[2026-07-05T11:51:56.527749+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"393e142"}
+[2026-07-05T11:51:58.638815+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"338426e"}
+[2026-07-05T11:52:07.422165+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"9e4c8c3"}
+[2026-07-05T11:52:08.362021+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"6c9fdd1"}
+[2026-07-05T11:52:21.750234+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"1511d94"}
+[2026-07-05T12:35:06.863436+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"7871e7c"}
+[2026-07-05T12:35:24.522880+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"42b6636"}
+[2026-07-05T12:56:35.297607+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"74c4b9f"}
+[2026-07-05T12:56:50.815574+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"6c92cbe"}
+[2026-07-05T12:56:53.897876+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"b99d126"}
+[2026-07-05T12:57:38.355616+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"7cbe195"}
+[2026-07-05T12:57:39.064201+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"00d1178"}
+[2026-07-05T15:36:01.574316+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"c33a50b"}
+[2026-07-06T03:58:50.092204+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"5d274c6"}
+[2026-07-06T10:08:20.911116+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"8c27ca1"}
+[2026-07-06T18:49:21.140202+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"b1d17ce"}
+[2026-07-06T18:50:33.806649+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"94190f1"}
+[2026-07-06T18:50:41.524530+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"3c5b974"}
+[2026-07-06T18:50:58.101084+00:00] gemini.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] []
+[2026-07-06T18:50:58.103894+00:00] gemini.INFO: Gemini API attempt 1/{3} for topic: c++ [] []
+[2026-07-06T18:51:11.921989+00:00] gemini.INFO: Successfully generated and validated lesson [] []
+[2026-07-06T18:51:11.925035+00:00] gemini.INFO: Lesson generated and persisted successfully {"user_id":3,"lesson_id":36,"topic":"c++","language":"English"} []
+[2026-07-07T19:18:05.267623+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"57684e5"}
+[2026-07-09T17:48:55.610879+00:00] teachme-api.INFO: GeminiService initialized with model: models/gemini-3.5-flash [] {"uid":"58483f1"}

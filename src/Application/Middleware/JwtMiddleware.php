@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Application\Middleware;
 
+use App\Application\Helpers\AuthHeader;
 use App\Application\Helpers\JsonResponse;
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
@@ -21,25 +22,20 @@ class JwtMiddleware implements Middleware
             return $handler->handle($request);
         }
 
-        // Extract Authorization header
-        $authHeader = $request->getHeaderLine('Authorization');
-        
-        if (empty($authHeader)) {
+        $token = AuthHeader::bearerToken($request);
+
+        if ($token === null) {
             $response = new \Slim\Psr7\Response();
             return JsonResponse::error($response, 'unauthorized', 401, 'UNAUTHORIZED');
         }
-
-        // Extract Bearer token (case-insensitive, handle extra spaces)
-        if (!preg_match('/Bearer\s+(.*)$/i', $authHeader, $matches)) {
-            $response = new \Slim\Psr7\Response();
-            return JsonResponse::error($response, 'unauthorized', 401, 'UNAUTHORIZED');
-        }
-
-        $token = trim($matches[1]);
 
         try {
             // Verify and decode JWT
-            $jwtSecret = $_ENV['JWT_SECRET'];
+            $jwtSecret = env('JWT_SECRET');
+            if (!is_string($jwtSecret) || $jwtSecret === '') {
+                $response = new \Slim\Psr7\Response();
+                return JsonResponse::error($response, 'Server misconfiguration', 500, 'CONFIG_ERROR');
+            }
             $decoded = JWT::decode($token, new Key($jwtSecret, 'HS256'));
             
             // Inject user_id into request attribute

@@ -22,7 +22,7 @@ class StripeWebhookAction
     {
         $this->stripeService = $stripeService;
         $this->logger = $logger;
-        $this->webhookSecret = $_ENV['STRIPE_WEBHOOK_SECRET'] ?? '';
+        $this->webhookSecret = env('STRIPE_WEBHOOK_SECRET') ?? '';
     }
 
     public function __invoke(Request $request, Response $response): Response
@@ -126,8 +126,7 @@ class StripeWebhookAction
             'subscription_id' => $subscriptionId
         ]);
 
-        // Update subscription with Stripe subscription ID (set status to active)
-        $this->stripeService->updateSubscriptionStatus($customerId, $subscriptionId, 'active');
+        $this->stripeService->activateSubscriptionForCustomer($customerId, $subscriptionId);
     }
 
     /**

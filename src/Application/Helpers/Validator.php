@@ -8,13 +8,34 @@ class Validator
 {
     private array $errors = [];
 
+    private function isBlank(mixed $value): bool
+    {
+        if ($value === null) {
+            return true;
+        }
+        if (is_string($value)) {
+            return trim($value) === '';
+        }
+        if (is_int($value) || is_float($value)) {
+            return false;
+        }
+        if (is_bool($value)) {
+            return false;
+        }
+        if (is_array($value)) {
+            return $value === [];
+        }
+
+        return trim((string) $value) === '';
+    }
+
     /**
      * Validate required fields
      */
     public function required(array $data, array $fields): self
     {
         foreach ($fields as $field) {
-            if (!isset($data[$field]) || trim($data[$field]) === '') {
+            if (!array_key_exists($field, $data) || $this->isBlank($data[$field])) {
                 $this->errors[$field] = "The {$field} field is required";
             }
         }
@@ -37,7 +58,7 @@ class Validator
      */
     public function minLength(array $data, string $field, int $length): self
     {
-        if (isset($data[$field]) && strlen($data[$field]) < $length) {
+        if (isset($data[$field]) && is_string($data[$field]) && strlen($data[$field]) < $length) {
             $this->errors[$field] = "The {$field} must be at least {$length} characters";
         }
         return $this;
@@ -48,7 +69,7 @@ class Validator
      */
     public function maxLength(array $data, string $field, int $length): self
     {
-        if (isset($data[$field]) && strlen($data[$field]) > $length) {
+        if (isset($data[$field]) && is_string($data[$field]) && strlen($data[$field]) > $length) {
             $this->errors[$field] = "The {$field} must not exceed {$length} characters";
         }
         return $this;

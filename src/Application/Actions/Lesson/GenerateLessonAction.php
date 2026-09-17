@@ -69,7 +69,8 @@ class GenerateLessonAction
             // Generate lesson using Gemini (with retries built-in)
             $lessonData = $this->geminiService->generateLesson(
                 $data['topic'],
-                $data['language']
+                $data['language'],
+                (int) $userId
             );
 
             // Begin transaction

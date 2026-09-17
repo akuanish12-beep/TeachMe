@@ -23,9 +23,11 @@ class MeAction
         // Get user_id from JWT middleware
         $userId = $request->getAttribute('user_id');
 
-        // Fetch user with subscription
+        // Fetch user with subscription and gamification fields
         $stmt = $this->db->prepare(
-            "SELECT u.id, u.full_name, u.email, s.status as subscription_status
+            "SELECT u.id, u.full_name, u.email, s.status as subscription_status,
+                    u.total_xp, u.current_level, u.current_streak, u.longest_streak, 
+                    u.last_active_date, u.streak_freezes_count
              FROM users u
              LEFT JOIN subscriptions s ON u.id = s.user_id
              WHERE u.id = ?"
@@ -43,6 +45,14 @@ class MeAction
             'email' => $user['email'],
             'subscription' => [
                 'status' => $user['subscription_status'] ?? 'none'
+            ],
+            'gamification' => [
+                'totalXp' => (int) ($user['total_xp'] ?? 0),
+                'currentLevel' => (int) ($user['current_level'] ?? 1),
+                'currentStreak' => (int) ($user['current_streak'] ?? 0),
+                'longestStreak' => (int) ($user['longest_streak'] ?? 0),
+                'lastActiveDate' => $user['last_active_date'],
+                'streakFreezesCount' => (int) ($user['streak_freezes_count'] ?? 0)
             ]
         ]);
     }

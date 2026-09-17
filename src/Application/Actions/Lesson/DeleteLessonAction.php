@@ -44,6 +44,10 @@ class DeleteLessonAction
                 );
             }
 
+            // Reset any plan days that reference this lesson
+            $stmt = $this->db->prepare("UPDATE learning_plan_days SET status = 'pending', completed_at = NULL WHERE lesson_id = ?");
+            $stmt->execute([$lessonId]);
+
             // Delete from lessons table (CASCADE will handle generations)
             // Note: If there's no CASCADE, we need to delete from generations first
             $stmt = $this->db->prepare("DELETE FROM lessons WHERE id = ? AND user_id = ?");

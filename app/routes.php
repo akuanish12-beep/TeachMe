@@ -2,7 +2,8 @@
 
 declare(strict_types=1);
 
-use App\Application\Actions\Auth\SignupAction;
+use App\Application\Actions\Auth\SignupSendOtpAction;
+use App\Application\Actions\Auth\SignupVerifyOtpAction;
 use App\Application\Actions\Auth\LoginAction;
 use App\Application\Actions\Auth\MeAction;
 use App\Application\Actions\Auth\StatusAction;
@@ -13,15 +14,52 @@ use App\Application\Actions\Lesson\GetLessonAction;
 use App\Application\Actions\Lesson\DeleteLessonAction;
 use App\Application\Actions\Lesson\UpdateLessonAction;
 use App\Application\Actions\Lesson\ListFavoritesAction;
+use App\Application\Actions\Lesson\ValidateAnswerAction;
+use App\Application\Actions\Lesson\CompleteLessonAction;
+use App\Application\Actions\Achievement\ListGlobalAchievementsAction;
+use App\Application\Actions\Achievement\ListUserAchievementsAction;
+use App\Application\Actions\Achievement\UnlockAchievementAction;
 use App\Application\Actions\User\ListUsersAction;
 use App\Application\Actions\User\ViewUserAction;
 use App\Application\Actions\User\QuotaAction;
+use App\Application\Actions\User\CreateReportAction;
 use App\Application\Actions\Ai\ListModelsAction;
 use App\Application\Actions\Ai\PingAction;
 use App\Application\Actions\Subscription\CreateCheckoutSessionAction;
+use App\Application\Actions\Subscription\CreateBillingPortalAction;
+use App\Application\Actions\Subscription\GetSubscriptionAction;
+use App\Application\Actions\Subscription\VerifyCheckoutSessionAction;
 use App\Application\Actions\Webhook\StripeWebhookAction;
 use App\Application\Actions\Admin\StatsAction;
+use App\Application\Actions\Staff\StaffLoginAction;
+use App\Application\Actions\Staff\StaffStatsAction;
+use App\Application\Actions\Staff\ListStaffUsersAction;
+use App\Application\Actions\Staff\UpdateStaffUserAction;
+use App\Application\Actions\Staff\ListStaffTicketsAction;
+use App\Application\Actions\Staff\GetStaffTicketAction;
+use App\Application\Actions\Staff\UpdateStaffTicketAction;
+use App\Application\Actions\Staff\ReplyStaffTicketAction;
+use App\Application\Actions\Support\CreateTicketAction;
+use App\Application\Actions\Support\ListMyTicketsAction;
+use App\Application\Actions\Support\GetMyTicketAction;
+use App\Application\Actions\Support\ReplyTicketAction;
+use App\Application\Actions\Plan\CreatePlanAction;
+use App\Application\Actions\Plan\GetActivePlanAction;
+use App\Application\Actions\Plan\GetPlanAction;
+use App\Application\Actions\Plan\GetPlanDayAction;
+use App\Application\Actions\Plan\CompletePlanDayAction;
+use App\Application\Actions\Plan\SkipPlanDayAction;
+use App\Application\Actions\Plan\ClosePlanAction;
+use App\Application\Actions\Plan\ProcessDailyPlansAction;
+use App\Application\Actions\User\GetUserAiSettingsAction;
+use App\Application\Actions\User\UpdateUserAiSettingsAction;
+use App\Application\Actions\User\DeleteUserAiSettingsAction;
+use App\Application\Actions\Leaderboard\CurrentLeaderboardAction;
+use App\Application\Actions\Challenge\CreateChallengeAction;
+use App\Application\Actions\Challenge\GetActiveChallengesAction;
 use App\Application\Middleware\JwtMiddleware;
+use App\Application\Middleware\OptionalJwtMiddleware;
+use App\Application\Middleware\StaffMiddleware;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\App;
@@ -55,7 +93,8 @@ return function (App $app) {
 
     // Auth routes (public except /me)
     $app->group('/auth', function (Group $group) {
-        $group->post('/signup', SignupAction::class);
+        $group->post('/signup/send-code', SignupSendOtpAction::class);
+        $group->post('/signup/verify', SignupVerifyOtpAction::class);
         $group->post('/login', LoginAction::class);
         $group->get('/status', StatusAction::class); // Public, token optional
         $group->get('/me', MeAction::class)->add(JwtMiddleware::class);
@@ -65,6 +104,7 @@ return function (App $app) {
     $app->group('/lessons', function (Group $group) {
         // List endpoints
         $group->get('', ListLessonsAction::class)->add(JwtMiddleware::class);
+        $group->post('/complete', CompleteLessonAction::class)->add(JwtMiddleware::class);
         $group->get('/favorites', ListFavoritesAction::class)->add(JwtMiddleware::class);
         
         // Single lesson operations
@@ -73,15 +113,46 @@ return function (App $app) {
         $group->delete('/{id}', DeleteLessonAction::class)->add(JwtMiddleware::class);
     });
     
+    // POST /lessons/validate - AI-powered answer validation
+    $app->post('/lessons/validate', function (Request $request, Response $response, array $args) {
+        try {
+            // Create logger
+            $logPath = __DIR__ . '/../storage/logs/app.log';
+            $logger = new \Monolog\Logger('validation');
+            $logger->pushHandler(new \Monolog\Handler\StreamHandler($logPath, \Monolog\Logger::DEBUG));
+            
+            $db = new \PDO(
+                sprintf("mysql:host=%s;port=%s;dbname=%s;charset=utf8mb4",
+                    env('DB_HOST'), env('DB_PORT'), env('DB_NAME')),
+                env('DB_USER'),
+                env('DB_PASS'),
+                [\PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION, \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC]
+            );
+            $encryption = new \App\Services\EncryptionService();
+            $tiers = new \App\Services\SubscriptionTierService($db);
+            $geminiService = new \App\Services\GeminiService($db, $encryption, $tiers, $logger);
+            
+            $action = new \App\Application\Actions\Lesson\ValidateAnswerAction($geminiService, $logger);
+            return $action($request, $response, $args);
+            
+        } catch (\Exception $e) {
+            $response->getBody()->write(json_encode([
+                'error' => 'Internal server error',
+                'message' => $e->getMessage()
+            ]));
+            return $response->withHeader('Content-Type', 'application/json')->withStatus(500);
+        }
+    })->add(JwtMiddleware::class);
+    
     // POST /lessons/generate - Complete implementation with logger
-    $app->post('/lessons/generate', function (Request $request, Response $response) {
+    $app->post('/lessons/generate', function (Request $request, Response $response, array $args) {
         try {
             // Create dependencies directly (avoid $this->get() which breaks JWT)
             $db = new \PDO(
                 sprintf("mysql:host=%s;port=%s;dbname=%s;charset=utf8mb4", 
-                    $_ENV['DB_HOST'], $_ENV['DB_PORT'], $_ENV['DB_NAME']),
-                $_ENV['DB_USER'],
-                $_ENV['DB_PASS'],
+                    env('DB_HOST'), env('DB_PORT'), env('DB_NAME')),
+                env('DB_USER'),
+                env('DB_PASS'),
                 [
                     \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION,
                     \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC,
@@ -94,12 +165,12 @@ return function (App $app) {
             $logger = new \Monolog\Logger('gemini');
             $logger->pushHandler(new \Monolog\Handler\StreamHandler($logPath, \Monolog\Logger::DEBUG));
             
-            // Create GeminiService with logger
-            $geminiService = new \App\Services\GeminiService($logger);
+            $encryption = new \App\Services\EncryptionService();
+            $tiers = new \App\Services\SubscriptionTierService($db);
+            $geminiService = new \App\Services\GeminiService($db, $encryption, $tiers, $logger);
             
-            // Create and invoke action (pass logger for error tracking)
             $action = new \App\Application\Actions\Lesson\GenerateLessonAction($db, $geminiService, $logger);
-            return $action($request, $response);
+            return $action($request, $response, $args);
             
         } catch (\Exception $e) {
             $response->getBody()->write(json_encode([
@@ -109,6 +180,31 @@ return function (App $app) {
             return $response->withHeader('Content-Type', 'application/json')->withStatus(500);
         }
     })->add(JwtMiddleware::class);
+
+    $app->group('/user', function (Group $group) {
+        $group->get('/ai-settings', GetUserAiSettingsAction::class);
+        $group->put('/ai-settings', UpdateUserAiSettingsAction::class);
+        $group->delete('/ai-settings', DeleteUserAiSettingsAction::class);
+    })->add(JwtMiddleware::class);
+    
+    // Achievements routes
+    $app->get('/achievements', ListGlobalAchievementsAction::class);
+    $app->get('/users/{user_id}/achievements', ListUserAchievementsAction::class)->add(JwtMiddleware::class);
+    $app->post('/users/achievements/unlock', UnlockAchievementAction::class)->add(JwtMiddleware::class);
+
+    // Reports routes
+    $app->post('/reports', CreateReportAction::class)->add(JwtMiddleware::class);
+
+    // API v1 Leaderboard endpoint
+    $app->group('/v1/leaderboard', function (Group $group) {
+        $group->get('/current', CurrentLeaderboardAction::class);
+    });
+
+    // API v1 Challenges endpoints
+    $app->group('/v1/challenges', function (Group $group) {
+        $group->post('/create', CreateChallengeAction::class);
+        $group->get('/active', GetActiveChallengesAction::class);
+    });
 
     // User routes
     $app->group('/users', function (Group $group) {
@@ -121,7 +217,10 @@ return function (App $app) {
     
     // Subscription routes
     $app->group('/subscriptions', function (Group $group) {
+        $group->get('/me', GetSubscriptionAction::class)->add(JwtMiddleware::class);
         $group->post('/create-checkout-session', CreateCheckoutSessionAction::class)->add(JwtMiddleware::class);
+        $group->post('/billing-portal', CreateBillingPortalAction::class)->add(JwtMiddleware::class);
+        $group->post('/verify-session', VerifyCheckoutSessionAction::class)->add(JwtMiddleware::class);
     });
     
     // Webhook routes (no authentication)
@@ -131,4 +230,41 @@ return function (App $app) {
     $app->group('/admin', function (Group $group) {
         $group->get('/stats', StatsAction::class)->add(JwtMiddleware::class);
     });
+
+    // Public support tickets
+    $app->group('/support', function (Group $group) {
+        $group->post('/tickets', CreateTicketAction::class)->add(OptionalJwtMiddleware::class);
+        $group->get('/tickets', ListMyTicketsAction::class)->add(JwtMiddleware::class);
+        $group->get('/tickets/{id}', GetMyTicketAction::class)->add(JwtMiddleware::class);
+        $group->post('/tickets/{id}/reply', ReplyTicketAction::class)->add(JwtMiddleware::class);
+    });
+
+    // Learning plans (multi-day structured courses)
+    $app->group('/plans', function (Group $group) {
+        $group->post('', CreatePlanAction::class);
+        $group->get('/active', GetActivePlanAction::class);
+        $group->get('/{id}', GetPlanAction::class);
+        $group->get('/{id}/days/{day}', GetPlanDayAction::class);
+        $group->post('/{id}/days/{day}/complete', CompletePlanDayAction::class);
+        $group->post('/{id}/days/{day}/skip', SkipPlanDayAction::class);
+        $group->post('/{id}/close', ClosePlanAction::class);
+    })->add(JwtMiddleware::class);
+
+    $app->post('/cron/daily-plans', ProcessDailyPlansAction::class);
+
+    // Staff panel API
+    $app->group('/staff', function (Group $group) {
+        $group->post('/auth/login', StaffLoginAction::class);
+
+        $group->group('', function (Group $inner) {
+            $inner->get('/stats', StaffStatsAction::class);
+            $inner->get('/users', ListStaffUsersAction::class);
+            $inner->patch('/users/{id}', UpdateStaffUserAction::class);
+            $inner->get('/tickets', ListStaffTicketsAction::class);
+            $inner->get('/tickets/{id}', GetStaffTicketAction::class);
+            $inner->patch('/tickets/{id}', UpdateStaffTicketAction::class);
+            $inner->post('/tickets/{id}/reply', ReplyStaffTicketAction::class);
+        })->add(StaffMiddleware::class)->add(JwtMiddleware::class);
+    });
+
 };

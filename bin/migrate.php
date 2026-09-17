@@ -26,7 +26,7 @@ $dbUser = $_ENV['DB_USER'];
 $dbPass = $_ENV['DB_PASS'];
 
 echo "======================================\n";
-echo "Tutorly Database Migration Runner\n";
+echo "TeachMe Database Migration Runner\n";
 echo "======================================\n\n";
 
 try {

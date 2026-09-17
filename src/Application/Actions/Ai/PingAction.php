@@ -14,7 +14,7 @@ class PingAction
     {
         return JsonResponse::success($response, [
             'ok' => true,
-            'model' => $_ENV['GEMINI_MODEL'] ?? 'not_configured'
+            'model' => env('GEMINI_MODEL') ?? 'not_configured'
         ]);
     }
 }

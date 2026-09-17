@@ -1,4 +1,4 @@
--- Initial schema for Tutorly application
+-- Initial schema for TeachMe application
 
 -- users table
 CREATE TABLE IF NOT EXISTS users (

@@ -19,8 +19,8 @@ class ListModelsAction
      */
     public function __invoke(Request $request, Response $response): Response
     {
-        $apiKey = $_ENV['GEMINI_API_KEY'] ?? '';
-        $configuredModel = $_ENV['GEMINI_MODEL'] ?? '';
+        $apiKey = env('GEMINI_API_KEY') ?? '';
+        $configuredModel = env('GEMINI_MODEL') ?? '';
 
         if (empty($apiKey)) {
             return JsonResponse::error($response, 'GEMINI_API_KEY not configured', 500, 'CONFIG_ERROR');

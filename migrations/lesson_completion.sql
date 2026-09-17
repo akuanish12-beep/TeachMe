@@ -1,0 +1,2 @@
+ALTER TABLE `lessons`
+ADD COLUMN `completed_at` TIMESTAMP NULL DEFAULT NULL;

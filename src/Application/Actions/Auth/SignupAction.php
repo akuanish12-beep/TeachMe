@@ -89,7 +89,7 @@ class SignupAction
 
     private function generateJWT(int $userId, string $email): string
     {
-        $jwtSecret = $_ENV['JWT_SECRET'];
+        $jwtSecret = env('JWT_SECRET');
         $issuedAt = time();
         $expiresAt = $issuedAt + (7 * 24 * 60 * 60); // 7 days
 

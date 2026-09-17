@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace App\Application\Actions\Auth;
 
+use App\Application\Helpers\AuthHeader;
 use App\Application\Helpers\JsonResponse;
+use App\Services\SubscriptionTierService;
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 use PDO;
@@ -14,30 +16,28 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 class StatusAction
 {
     private PDO $db;
+    private SubscriptionTierService $tiers;
     private const FREE_GENERATIONS_LIMIT = 1;
 
-    public function __construct(PDO $db)
+    public function __construct(PDO $db, SubscriptionTierService $tiers)
     {
         $this->db = $db;
+        $this->tiers = $tiers;
     }
 
     public function __invoke(Request $request, Response $response): Response
     {
-        // Try to extract and validate token (optional)
-        $authHeader = $request->getHeaderLine('Authorization');
-        
-        if (empty($authHeader) || !preg_match('/Bearer\s+(.*)$/i', $authHeader, $matches)) {
-            // No token or invalid format - unauthenticated
+        $token = AuthHeader::bearerToken($request);
+
+        if ($token === null) {
             return JsonResponse::success($response, [
-                'authenticated' => false
+                'authenticated' => false,
             ]);
         }
-
-        $token = trim($matches[1]);
         
         try {
             // Verify JWT
-            $jwtSecret = $_ENV['JWT_SECRET'] ?? '';
+            $jwtSecret = env('JWT_SECRET') ?? '';
             $decoded = JWT::decode($token, new Key($jwtSecret, 'HS256'));
             
             $userId = $decoded->sub;
@@ -57,14 +57,9 @@ class StatusAction
                 ]);
             }
             
-            // Get subscription status
-            $stmt = $this->db->prepare(
-                "SELECT status FROM subscriptions WHERE user_id = ?"
-            );
-            $stmt->execute([$userId]);
-            $subscription = $stmt->fetch(PDO::FETCH_ASSOC);
-            
-            $subscriptionStatus = $subscription ? $subscription['status'] : 'none';
+            $subMeta = $this->tiers->getSubscriptionMeta((int) $userId);
+            $subscriptionStatus = $subMeta['status'];
+            $planTier = $subMeta['planTier'];
             
             // Check generation count for canGenerate
             $stmt = $this->db->prepare(
@@ -85,7 +80,10 @@ class StatusAction
                     'email' => $user['email']
                 ],
                 'subscription' => [
-                    'status' => $subscriptionStatus
+                    'status' => $subscriptionStatus,
+                    'planTier' => $planTier,
+                    'tierLabel' => $subMeta['tierLabel'],
+                    'maxConcurrentPlans' => $subMeta['maxConcurrentPlans'],
                 ],
                 'canGenerate' => $canGenerate
             ]);

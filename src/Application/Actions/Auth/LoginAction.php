@@ -38,7 +38,8 @@ class LoginAction
         $stmt = $this->db->prepare(
             "SELECT id, full_name, email, password_hash FROM users WHERE email = ?"
         );
-        $stmt->execute([$data['email']]);
+        $email = strtolower(trim((string) $data['email']));
+        $stmt->execute([$email]);
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if (!$user) {
@@ -65,7 +66,7 @@ class LoginAction
 
     private function generateJWT(int $userId, string $email): string
     {
-        $jwtSecret = $_ENV['JWT_SECRET'];
+        $jwtSecret = env('JWT_SECRET');
         $issuedAt = time();
         $expiresAt = $issuedAt + (7 * 24 * 60 * 60); // 7 days
 

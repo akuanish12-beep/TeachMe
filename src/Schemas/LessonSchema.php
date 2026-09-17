@@ -8,6 +8,7 @@ class LessonSchema
 {
     /**
      * Get the expected lesson JSON schema structure
+     * Enhanced for contextual, structured lessons with vocabulary, grammar, phrases, and dialogue
      */
     public static function getSchema(): array
     {
@@ -41,6 +42,15 @@ class LessonSchema
                         'prompt' => 'string',
                         'question' => 'string',
                         'expected_points' => ['string']
+                    ]
+                ],
+                'multiple_choice' => [
+                    [
+                        'prompt' => 'string',
+                        'question' => 'string',
+                        'options' => ['string', 'string', 'string', 'string'],
+                        'correct_answer' => 'string',
+                        'explanation' => 'string'
                     ]
                 ]
             ]
@@ -127,10 +137,27 @@ class LessonSchema
                         }
                     }
                 }
+
+                // Validate multiple_choice (NEW)
+                if (isset($data['exercises']['multiple_choice'])) {
+                    if (!is_array($data['exercises']['multiple_choice'])) {
+                        $errors[] = "exercises.multiple_choice must be an array";
+                    } else {
+                        foreach ($data['exercises']['multiple_choice'] as $idx => $ex) {
+                            if (!isset($ex['prompt']) || !isset($ex['question']) || !isset($ex['options']) || !isset($ex['correct_answer'])) {
+                                $errors[] = "exercises.multiple_choice[{$idx}] missing required fields";
+                            }
+                            if (isset($ex['options'])) {
+                                if (!is_array($ex['options']) || count($ex['options']) !== 4) {
+                                    $errors[] = "exercises.multiple_choice[{$idx}].options must be an array of exactly 4 strings";
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
 
         return $errors;
     }
 }
-
